@@ -1,11 +1,12 @@
 {
     "name": "@jeneric/cms",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "jeneric cms",
     "main": "index.js",
     "scripts": {},
     "author": "Roman Eckert",
-    "license": "UNLICENSED",
+    "license": "MIT",
+    "repository": "https://github.com/romaneckert/jeneric-example",
     "dependencies": {
         "@jeneric/core": "2.0.0"
     }
