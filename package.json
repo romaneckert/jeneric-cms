@@ -1,0 +1,12 @@
+{
+    "name": "@jeneric/cms",
+    "version": "1.0.0",
+    "description": "jeneric cms",
+    "main": "index.js",
+    "scripts": {},
+    "author": "Roman Eckert",
+    "license": "UNLICENSED",
+    "dependencies": {
+        "@jeneric/core": "2.0.0"
+    }
+}
