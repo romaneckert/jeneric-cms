@@ -1,9 +1,9 @@
 module.exports = {
     cms: {
         login: {
-            path: '/jeneric/login',
+            path: '/jeneric/sign-in',
             methods: 'get,post',
-            handler: 'jeneric/login'
+            handler: 'jeneric/signIn'
         }
     }
 };

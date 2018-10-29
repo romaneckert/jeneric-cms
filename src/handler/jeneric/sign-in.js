@@ -2,9 +2,8 @@ class Login {
 
     handle(req, res) {
 
-        
 
-        return res.render('jeneric/login');
+        return res.render('jeneric/sign-in');
     }
 
 }
