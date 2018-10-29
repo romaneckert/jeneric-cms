@@ -2,7 +2,7 @@ module.exports = {
     cms: {
         login: {
             path: '/jeneric/login',
-            method: 'get',
+            methods: 'get,post',
             handler: 'jeneric/login'
         }
     }

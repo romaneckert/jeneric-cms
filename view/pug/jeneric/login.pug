@@ -5,5 +5,11 @@ block append head
     meta(name="description" content="Jeneric Login")
 
 block content
-
-    | Login Form
+    form(method='post')
+        .form-group
+            label(for='email') Email
+            input.form-control(id='email' type='email')
+        .form-group
+            label(for='password') Password
+            input.form-control(id='password' type='password')
+        button.btn.btn-primary(type='submit') Submit
