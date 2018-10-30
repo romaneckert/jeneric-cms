@@ -7,6 +7,8 @@
     "author": "Roman Eckert",
     "license": "UNLICENSED",
     "dependencies": {
+        "bcrypt": "3.0.2",
+        "jsonwebtoken": "8.3.0",
         "@jeneric/core": "2.0.0"
     }
 }
