@@ -10,6 +10,11 @@ block content
 
     p We can not find a default user in the database. Please create a new one.
 
+    if errors
+        ul
+            each error in errors
+                li error
+
     form(method='post')
         .form-group
             label(for='email') Email
