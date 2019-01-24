@@ -1,6 +1,6 @@
 {
     "name": "@jeneric/cms",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "description": "jeneric cms",
     "main": "index.js",
     "scripts": {},
@@ -8,8 +8,8 @@
     "license": "MIT",
     "repository": "https://github.com/romaneckert/jeneric-cms",
     "dependencies": {
-        "bcrypt": "3.0.2",
-        "jsonwebtoken": "8.3.0",
-        "@jeneric/core": "2.0.1"
+        "bcrypt": "3.0.3",
+        "jsonwebtoken": "8.4.0",
+        "@jeneric/core": "2.0.3"
     }
 }
