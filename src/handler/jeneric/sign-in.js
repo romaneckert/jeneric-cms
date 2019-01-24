@@ -4,6 +4,10 @@ class Login {
 
     handle(req, res, next) {
 
+        if (!req.body.email) {
+            return res.render('jeneric/sign-in');
+        }
+
         this.model.user.findOne({ email: req.body.email }, (err, user) => {
             if (err) return next(err);
 
@@ -24,7 +28,6 @@ class Login {
 
         });
 
-        return res.render('jeneric/sign-in');
     }
 
 }
