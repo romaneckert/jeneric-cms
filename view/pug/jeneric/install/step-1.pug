@@ -10,15 +10,15 @@ block content
 
     p We can not find a default user in the database. Please create a new one.
 
-    if errors
+    if form && form.errors
         ul
-            each error in errors
-                li error
+            each error in form.errors
+                li error.message
 
     form(method='post')
         .form-group
             label(for='email') Email
-            input.form-control(id='email' type='email' name="email")
+            textfield.form-control(id='email' type='email' name="email")
         .form-group
             label(for='password') Password
             input.form-control(id='password' type='password' name="password")
