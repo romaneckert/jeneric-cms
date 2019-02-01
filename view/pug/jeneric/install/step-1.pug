@@ -15,11 +15,11 @@ block content
             each error in form.errors
                 li error.message
 
-    form(method='post')
+    +form(method='post' form=form)
         .form-group
             label(for='email') Email
-            textfield.form-control(id='email' type='email' name="email")
+            +textfield.form-control(type='email' name='email')
         .form-group
             label(for='password') Password
-            input.form-control(id='password' type='password' name="password")
+            input.form-control(type='password' name="password")
         button.btn.btn-primary(type='submit') Submit
