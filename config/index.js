@@ -1,4 +1,5 @@
 module.exports = {
+    env: 'development',
     model: {
         user: {
             schema: {
@@ -9,6 +10,9 @@ module.exports = {
                 password: {
                     type: String,
                     required: true
+                },
+                passwordToken: {
+                    type: String
                 }
             }
         }

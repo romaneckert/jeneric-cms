@@ -16,14 +16,21 @@ class Step1 {
                         return res.redirect('/jeneric/install/step-2');
                     }
                 } catch (err) {
+
+                    if (err) this.logger.error('can not find user with email', err);
+
                     return res.render('jeneric/install/step-1', {
                         form: form
                     });
                 }
 
                 try {
+                    user.password = await bcrypt.hash(user.password, 10);
                     user = await form.instance.save();
                 } catch (err) {
+
+                    if (err) this.logger.error('can not generate password for user', err);
+
                     return res.render('jeneric/install/step-1', {
                         form: form
                     });
