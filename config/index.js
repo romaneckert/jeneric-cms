@@ -14,6 +14,12 @@ module.exports = {
         }
     },
     module: {
+        mail: {
+            url: 'smtp://localhost:1025'
+        },
+        mongoose: {
+            url: 'mongodb://localhost/jeneric-cms'
+        },
         server: {
             middleware: {
                 2000: 'auth'

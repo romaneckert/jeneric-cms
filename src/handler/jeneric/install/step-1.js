@@ -2,32 +2,46 @@ class Step1 {
 
     async handle(req, res, next) {
 
-        let form = this.module.form.handle({
-            email: {
-                type: String,
-                required: true
-            },
-            password: {
-                type: String,
-                required: true
-            }
-        }, req);
+        let user = new this.model.user();
+
+        let form = this.module.form.handle(user, req.body);
 
         if (form.submitted) {
 
             if (form.valid) {
 
-                console.log(form);
+                // check if user with email already exists
+                try {
+                    if (null !== await this.model.user.findOne({ email: form.instance.email })) {
+                        return res.redirect('/jeneric/install/step-2');
+                    }
+                } catch (err) {
+                    return res.render('jeneric/install/step-1', {
+                        form: form
+                    });
+                }
 
-                // insert to db and redirect to step-1
+                try {
+                    user = await form.instance.save();
+                } catch (err) {
+                    return res.render('jeneric/install/step-1', {
+                        form: form
+                    });
+                }
 
-                let user = await this.model.user.findOne({ email: req.body.email });
+                this.module.mail.send({
+                    to: user.email,
+                    subject: 'Please verify your email',
+                    html: res.render('/jeneric/user/email/verify')
+                }, (err) => {
+                    if (err) {
+                        this.logger.error('can not send email to user', err);
+                    }
+                });
 
-                console.log(user);
+                return res.redirect('/jeneric/install/step-2');
 
             } else {
-
-                console.log(form);
 
                 return res.render('jeneric/install/step-1', {
                     form: form
@@ -35,17 +49,14 @@ class Step1 {
             }
 
         } else {
-            this.model.user.countDocuments((err, count) => {
-                if (err) return next(err);
 
-                if (0 === count) {
-                    return res.render('jeneric/install/step-1', {
-                        form: form
-                    });
-                } else {
-                    return res.render('jeneric/install/step-2');
-                }
-            });
+            if (0 === await this.model.user.countDocuments()) {
+                return res.render('jeneric/install/step-1', {
+                    form: form
+                });
+            }
+
+            return res.redirect('/jeneric/install/step-2');
         }
     }
 

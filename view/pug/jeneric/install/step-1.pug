@@ -10,16 +10,13 @@ block content
 
     p We can not find a default user in the database. Please create a new one.
 
-    if form && form.errors
-        ul
-            each error in form.errors
-                li error.message
+    +formError(form=form)
 
     +form(method='post' form=form)
         .form-group
             label(for='email') Email
-            +textfield.form-control(type='email' name='email')
+            +textfield.form-control(type='email' name='email' form=form)
         .form-group
             label(for='password') Password
-            input.form-control(type='password' name="password")
+            +textfield.form-control(type='password' name='password' form=form)
         button.btn.btn-primary(type='submit') Submit
