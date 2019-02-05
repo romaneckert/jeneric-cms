@@ -18,6 +18,10 @@ module.exports = {
         }
     },
     module: {
+        i18n: {
+            locales: ['en', 'de'],
+            defaultLocale: ['en']
+        },
         mail: {
             url: 'smtp://localhost:1025'
         },

@@ -1,5 +1,13 @@
 {
-    "jeneric.cms.install.step-1.title": "Install Step 1",
-    "jeneric.cms.install.step-1.description": "Install Step 1",
-    "jeneric.cms.install.step-1.headline": "Create user"
+    "jeneric": {
+        "cms": {
+            "install": {
+                "step-1": {
+                    "title": "Install Step 1",
+                    "description": "Install Step 1",
+                    "headline": "Create user"
+                }
+            }
+        }
+    }
 }
