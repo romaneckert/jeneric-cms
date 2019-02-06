@@ -1,5 +1,4 @@
 module.exports = {
-    env: 'development',
     model: {
         user: {
             schema: {
@@ -19,8 +18,8 @@ module.exports = {
     },
     module: {
         i18n: {
-            locales: ['en', 'de'],
-            defaultLocale: ['en']
+            locales: ['en', 'de_DE', 'de'],
+            defaultLocale: ['en'],
         },
         mail: {
             url: 'smtp://localhost:1025'

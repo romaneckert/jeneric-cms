@@ -1,1 +1,11 @@
-{}
+{
+    "jeneric": {
+        "cms": {
+            "install": {
+                "step-1": {
+                    "title": "Install Step 1"
+                }
+            }
+        }
+    }
+}

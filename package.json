@@ -11,5 +11,10 @@
         "bcrypt": "3.0.3",
         "jsonwebtoken": "8.4.0",
         "@jeneric/core": "2.0.3"
+    },
+    "nodemonConfig": {
+        "ignore": [],
+        "delay": "100",
+        "ext": "js,json,pug"
     }
 }
