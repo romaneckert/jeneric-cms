@@ -1,3 +1,5 @@
+const bcrypt = require('bcrypt');
+
 class Step1 {
 
     async handle(req, res, next) {
@@ -38,12 +40,10 @@ class Step1 {
 
                 this.module.mail.send({
                     to: user.email,
-                    subject: 'Please verify your email',
-                    html: res.render('/jeneric/user/email/verify')
+                    subject: res.trans('test'),
+                    html: res.render('jeneric/user/email/verify')
                 }, (err) => {
-                    if (err) {
-                        this.logger.error('can not send email to user', err);
-                    }
+                    if (err) this.logger.error('can not send email to user', err);
                 });
 
                 return res.redirect('/jeneric/install/step-2');
