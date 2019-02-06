@@ -1,12 +1,12 @@
 extends ../layout.pug
 
 block append head
-    title= __('jeneric.cms.install.step-1.title')
-    meta(name="description" content=__('jeneric.cms.install.step-1.description'))
+    title=trans('jeneric.cms.install.step-1.title')
+    meta(name="description" content=trans('jeneric.cms.install.step-1.description'))
 
 block content
 
-    h1= __('jeneric.cms.install.step-1.headline')
+    h1=trans('jeneric.cms.install.step-1.headline')
 
     p We can not find a default user in the database. Please create a new one.
 
@@ -14,9 +14,9 @@ block content
 
     +form(method='post' form=form)
         .form-group
-            label(for='email') Email
+            label(for='email')=trans('jeneric.cms.install.step-1.form.label.email')
             +textfield.form-control(type='email' name='email' form=form)
         .form-group
-            label(for='password') Password
+            label(for='password')=trans('jeneric.cms.install.step-1.form.label.password')
             +textfield.form-control(type='password' name='password' form=form)
-        button.btn.btn-primary(type='submit') Submit
+        button.btn.btn-primary(type='submit')=trans('jeneric.cms.install.step-1.form.submit')

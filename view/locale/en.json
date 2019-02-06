@@ -5,7 +5,12 @@
                 "step-1": {
                     "title": "Install Step 1",
                     "description": "Install Step 1",
-                    "headline": "Create user"
+                    "headline": "Create user",
+                    "form": {
+                        "label": {
+                            "email": "Email"
+                        }
+                    }
                 }
             }
         }
