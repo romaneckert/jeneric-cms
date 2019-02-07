@@ -14,7 +14,7 @@ class Step1 {
                 type: String,
                 required: true
             },
-        });
+        }, user);
 
         form.handle(req.body);
 
@@ -41,7 +41,7 @@ class Step1 {
             }
         } catch (err) {
 
-            form.addError('can not find user with email');
+            this.logger.error(err);
 
             return res.render('jeneric/install/step-1', {
                 form: form
@@ -52,8 +52,8 @@ class Step1 {
         try {
             user.password = await bcrypt.hash(user.password, 10);
         } catch (err) {
+
             form.addError('password', 'can not generate password for user');
-            this.logger.error(err);
 
             return res.render('jeneric/install/step-1', {
                 form: form
