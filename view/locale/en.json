@@ -15,6 +15,13 @@
                         "submit": "Submit"
                     }
                 }
+            },
+            "user": {
+                "email": {
+                    "confirm": {
+                        "subject": "Jeneric CMS | Please confirm your email address"
+                    }
+                }
             }
         }
     }

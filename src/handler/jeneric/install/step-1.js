@@ -1,60 +1,24 @@
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 
 class Step1 {
 
     async handle(req, res, next) {
 
         let user = new this.model.user();
+        let form = new this.component.form({
+            email: {
+                type: String,
+                required: true
+            },
+            password: {
+                type: String,
+                required: true
+            },
+        });
 
-        let form = this.module.form.handle(user, req.body);
+        form.handle(req.body);
 
-        if (form.submitted) {
-
-            if (!form.valid) {
-
-                return res.render('jeneric/install/step-1', {
-                    form: form
-                });
-            }
-
-            // check if user with email already exists
-            try {
-                if (null !== await this.model.user.findOne({ email: form.instance.email })) {
-                    return res.redirect('/jeneric/install/step-2');
-                }
-            } catch (err) {
-
-                if (err) this.logger.error('can not find user with email', err);
-
-                return res.render('jeneric/install/step-1', {
-                    form: form
-                });
-            }
-
-            try {
-                user.password = await bcrypt.hash(user.password, 10);
-                user = await form.instance.save();
-            } catch (err) {
-
-                if (err) this.logger.error('can not generate password for user', err);
-
-                return res.render('jeneric/install/step-1', {
-                    form: form
-                });
-            }
-
-            this.module.mail.send({
-                to: user.email,
-                subject: res.trans('test'),
-                html: res.render('jeneric/user/email/verify')
-            }, (err) => {
-                if (err) this.logger.error('can not send email to user', err);
-            });
-
-            return res.redirect('/jeneric/install/step-2');
-
-        } else {
-
+        if (!form.submitted) {
             if (0 === await this.model.user.countDocuments()) {
                 return res.render('jeneric/install/step-1', {
                     form: form
@@ -63,6 +27,51 @@ class Step1 {
 
             return res.redirect('/jeneric/install/step-2');
         }
+
+        if (!form.valid) {
+            return res.render('jeneric/install/step-1', {
+                form: form
+            });
+        }
+
+        // check if user with email already exists
+        try {
+            if (null !== await this.model.user.findOne({ email: form.instance.email })) {
+                return res.redirect('/jeneric/install/step-2');
+            }
+        } catch (err) {
+
+            form.addError('can not find user with email');
+
+            return res.render('jeneric/install/step-1', {
+                form: form
+            });
+        }
+
+        // generate password and save user
+        try {
+            user.password = await bcrypt.hash(user.password, 10);
+        } catch (err) {
+            form.addError('password', 'can not generate password for user');
+            this.logger.error(err);
+
+            return res.render('jeneric/install/step-1', {
+                form: form
+            });
+        }
+
+        user = await form.instance.save();
+
+        // send email with confirm token
+
+        if (await this.module.user.sendEmailConfirm(user, res)) {
+            return res.redirect('/jeneric/install/step-2');
+        }
+
+        return res.render('jeneric/install/step-1', {
+            form: form
+        });
+
     }
 
 }
