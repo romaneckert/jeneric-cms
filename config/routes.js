@@ -2,18 +2,8 @@ module.exports = {
     jeneric: {
         install: {
             path: '/jeneric/install',
-            methods: 'get',
-            handler: 'jeneric/install/install'
-        },
-        step1: {
-            path: '/jeneric/install/step-1',
             methods: 'get,post',
-            handler: 'jeneric/install/step1'
-        },
-        step2: {
-            path: '/jeneric/install/step-2',
-            methods: 'get,post',
-            handler: 'jeneric/install/step2'
+            handler: 'jeneric/install'
         },
         login: {
             path: '/jeneric/sign-in',

@@ -1,0 +1,22 @@
+extends ../layout.pug
+
+block append head
+    title=trans('jeneric.cms.install.title')
+    meta(name="description" content=trans('jeneric.cms.install.description'))
+
+block content
+
+    h1=trans('jeneric.cms.install.headline')
+
+    p=trans('jeneric.cms.install.hint')
+
+    +formError(form=form)
+
+    +form(method='post' form=form)
+        .form-group
+            label(for='email')=trans('jeneric.cms.install.form.label.email')
+            +textfield.form-control(type='email' name='email' form=form)
+        .form-group
+            label(for='password')=trans('jeneric.cms.install.form.label.password')
+            +textfield.form-control(type='password' name='password' form=form)
+        button.btn.btn-primary(type='submit')=trans('jeneric.cms.install.form.submit')

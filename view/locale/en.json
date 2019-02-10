@@ -2,18 +2,16 @@
     "jeneric": {
         "cms": {
             "install": {
-                "step-1": {
-                    "title": "Install Step 1",
-                    "description": "Install Step 1",
-                    "headline": "Create user",
-                    "hint": "We can not find a default user in the database. Please create a new one.",
-                    "form": {
-                        "label": {
-                            "email": "Email",
-                            "password": "Password"
-                        },
-                        "submit": "Submit"
-                    }
+                "title": "Install",
+                "description": "Install",
+                "headline": "Create user",
+                "hint": "We can not find a default user in the database. Please create a new one.",
+                "form": {
+                    "label": {
+                        "email": "Email",
+                        "password": "Password"
+                    },
+                    "submit": "Submit"
                 }
             },
             "user": {
