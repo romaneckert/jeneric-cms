@@ -2,7 +2,12 @@
     "jeneric": {
         "error": {
             "data_process": "The data could not be processed correctly. Please try again at a later time.",
-            "send_email": "The email could not be sent. Please try again at a later time."
+            "send_email": "The email could not be sent. Please try again at a later time.",
+            "email_required": "Please enter your email address.",
+            "password": {
+                "one_number_required": "The password must contain at least one number.",
+                "one_letter_required": "The password must contain at least one letter."
+            }
         },
         "install": {
             "title": "Install",

@@ -11,16 +11,33 @@ class Install {
     }
 
     async handleUserCreation(req, res, next) {
+
+        // /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
+
         let user = new this.model.user();
         let form = new this.component.form({
             email: {
                 type: String,
-                required: true
+                required: [true, 'jeneric.error.email.required']
             },
             password: {
                 type: String,
-                required: true
-            },
+                validate: [
+                    {
+                        validator: (password) => {
+                            return /\d/.test(password);
+                        },
+                        message: 'jeneric.error.password.one_number_required'
+                    },
+                    {
+                        validator: (password) => {
+                            return /[a-zA-Z]/.test(password);
+                        },
+                        message: 'jeneric.error.password.one_letter_required'
+                    }
+                ],
+
+            }
         }, user);
 
         form.handle(req.body);
