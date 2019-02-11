@@ -50,7 +50,8 @@ class Install {
             user.password = await bcrypt.hash(user.password, 10);
         } catch (err) {
 
-            form.addError('password', 'can not generate password for user');
+            form.addError('password', 'jeneric.error.data_process');
+            this.logger.error('can not generate password for user', err);
 
             return res.render('jeneric/install/user-creation', {
                 form: form
@@ -61,7 +62,8 @@ class Install {
         try {
             await user.save();
         } catch (err) {
-            form.addError('user', 'can not save user');
+            form.addError('user', 'jeneric.error.data_process');
+            this.logger.error('can not save user', err);
 
             return res.render('jeneric/install/user-creation', {
                 form: form
@@ -69,13 +71,30 @@ class Install {
         }
 
         // send email with confirm token
-        if (await this.module.user.sendEmailConfirm(user, res)) {
+        try {
+
+            let html = await this.module.mail.render('jeneric/user/email/verify', user, res);
+
+            await this.module.mail.send({
+                to: user.email,
+                subject: res.trans('jeneric.user.email.confirm.subject'),
+                html: html
+            });
+
             return res.redirect('/jeneric/install');
+        } catch (err) {
+
+            form.addError('user', 'jeneric.error.send_email');
+            this.logger.error('can not send email to user', err);
         }
 
-        form.addError('user', 'can not send email to user');
-
-        // TODO: add delete user
+        // remove model, because email send failed
+        try {
+            await user.remove();
+        } catch (err) {
+            form.addError('user', 'jeneric.error.data_process');
+            this.logger.error('can not delete user', err);
+        }
 
         return res.render('jeneric/install/user-creation', {
             form: form

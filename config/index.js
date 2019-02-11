@@ -21,7 +21,7 @@ module.exports = {
             defaultLocale: ['en'],
         },
         mail: {
-            url: 'smtp://localhost:1025'
+            url: 'smtp://localhost:1025/'
         },
         mongoose: {
             url: 'mongodb://localhost/jeneric-cms'

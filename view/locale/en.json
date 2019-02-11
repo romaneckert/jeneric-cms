@@ -1,24 +1,26 @@
 {
     "jeneric": {
-        "cms": {
-            "install": {
-                "title": "Install",
-                "description": "Install",
-                "headline": "Create user",
-                "hint": "We can not find a default user in the database. Please create a new one.",
-                "form": {
-                    "label": {
-                        "email": "Email",
-                        "password": "Password"
-                    },
-                    "submit": "Submit"
-                }
-            },
-            "user": {
-                "email": {
-                    "confirm": {
-                        "subject": "Jeneric CMS | Please confirm your email address"
-                    }
+        "error": {
+            "data_process": "The data could not be processed correctly. Please try again at a later time.",
+            "send_email": "The email could not be sent. Please try again at a later time."
+        },
+        "install": {
+            "title": "Install",
+            "description": "Install",
+            "headline": "Create a new user.",
+            "hint": "No user could be found. Please create a new one.",
+            "form": {
+                "label": {
+                    "email": "Email",
+                    "password": "Password"
+                },
+                "submit": "Submit"
+            }
+        },
+        "user": {
+            "email": {
+                "confirm": {
+                    "subject": "Jeneric CMS | Please confirm your email address"
                 }
             }
         }

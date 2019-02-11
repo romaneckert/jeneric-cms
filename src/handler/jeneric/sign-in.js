@@ -2,7 +2,9 @@ let bcrypt = require('bcrypt');
 
 class Login {
 
-    handle(req, res, next) {
+    async handle(req, res, next) {
+
+        if (0 === await this.model.user.countDocuments()) return res.redirect('/jeneric/install');
 
         if (!req.body.email) {
             return res.render('jeneric/sign-in');
