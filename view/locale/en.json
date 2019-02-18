@@ -4,7 +4,7 @@
             "data_process": "The data could not be processed correctly. Please try again at a later time.",
             "send_email": "The email could not be sent. Please try again at a later time.",
             "email": {
-                "required": "Please enter your email address."
+                "not_valid": "Please enter a valid email address."
             },
             "password": {
                 "one_number_required": "The password must contain at least one number.",

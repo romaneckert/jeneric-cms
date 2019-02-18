@@ -18,7 +18,14 @@ class Install {
         let form = new this.component.form({
             email: {
                 type: String,
-                required: [true, 'jeneric.error.email.required']
+                validate: [
+                    {
+                        validator: (email) => {
+                            return /\S+@\S+\.\S+/.test(email);
+                        },
+                        message: 'jeneric.error.email.not_valid'
+                    },
+                ]
             },
             password: {
                 type: String,
