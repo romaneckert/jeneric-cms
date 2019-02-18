@@ -31,9 +31,43 @@ class Install {
                     },
                     {
                         validator: (password) => {
-                            return /[a-zA-Z]/.test(password);
+                            return /[a-zA-ZöäüÖÜA]/.test(password);
                         },
                         message: 'jeneric.error.password.one_letter_required'
+                    },
+                    {
+                        validator: (password) => {
+                            return /[\@\^\#\(\)\[\]\{\}\?\!\$\%\&\/\=\*\+\~\,\.\;\:\<\>\-\_]/.test(password);
+                        },
+                        message: 'jeneric.error.password.one_special_char_required'
+                    },
+                    {
+                        validator: (password) => {
+                            return password.length > 7;
+                        },
+                        message: 'jeneric.error.password.min_length_8'
+                    },
+                    {
+                        validator: (password) => {
+                            return password.length < 101;
+                        },
+                        message: 'jeneric.error.password.max_length_100'
+                    },
+                    {
+                        validator: (password) => {
+
+                            let allowedChars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZöüäÖÜÄ0123456789@^#()[]{}?!$%&/=*+~,.;:<>-_'.split('');
+
+                            for (let char of password) {
+
+                                if (-1 === allowedChars.indexOf(char)) {
+                                    return false;
+                                }
+                            }
+
+                            return true;
+                        },
+                        message: 'jeneric.error.password.illegal_characters'
                     }
                 ],
 
@@ -100,7 +134,6 @@ class Install {
 
             return res.redirect('/jeneric/install');
         } catch (err) {
-
             form.addError('user', 'jeneric.error.send_email');
             this.logger.error('can not send email to user', err);
         }

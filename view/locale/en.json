@@ -8,14 +8,17 @@
             },
             "password": {
                 "one_number_required": "The password must contain at least one number.",
-                "one_letter_required": "The password must contain at least one letter."
+                "one_letter_required": "The password must contain at least one letter.",
+                "one_special_char_required": "The password must contain at least one special character.",
+                "min_length_8": "The password must be at least 8 characters long.",
+                "max_length_64": "The maximum length of the password is 100 characters.",
+                "illegal_characters": "The password contains illegal characters."
             }
         },
         "install": {
             "title": "Install",
             "description": "Install",
             "headline": "Create a new user.",
-            "hint": "No user could be found. Please create a new one.",
             "form": {
                 "label": {
                     "email": "Email",
