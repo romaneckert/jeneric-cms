@@ -1,4 +1,7 @@
 module.exports = {
+    core: {
+        cluster: true
+    },
     model: {
         user: {
             schema: {

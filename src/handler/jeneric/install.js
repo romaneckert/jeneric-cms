@@ -12,8 +12,6 @@ class Install {
 
     async handleUserCreation(req, res, next) {
 
-        // /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
-
         let user = new this.model.user();
         let form = new this.component.form({
             email: {
@@ -63,13 +61,8 @@ class Install {
                     {
                         validator: (password) => {
 
-                            let allowedChars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZöüäÖÜÄ0123456789@^#()[]{}?!$%&/=*+~,.;:<>-_'.split('');
-
                             for (let char of password) {
-
-                                if (-1 === allowedChars.indexOf(char)) {
-                                    return false;
-                                }
+                                if (-1 === 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZöüäÖÜÄ0123456789@^#()[]{}?!$%&/=*+~,.;:<>-_'.split('').indexOf(char)) return false;
                             }
 
                             return true;
@@ -145,7 +138,7 @@ class Install {
             this.logger.error('can not send email to user', err);
         }
 
-        // remove model, because email send failed
+        // remove user instance, because email send failed
         try {
             await user.remove();
         } catch (err) {

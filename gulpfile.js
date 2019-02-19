@@ -2,15 +2,17 @@
 
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-
 sass.compiler = require('node-sass');
 
-gulp.task('sass', function () {
+function css() {
     return gulp.src('./view/scss/style.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./css'));
-});
+        .pipe(gulp.dest('./view/css/jeneric'));
+}
 
-gulp.task('sass:watch', function () {
-    gulp.watch('./sass/**/*.scss', ['sass']);
-});
+function watch() {
+    gulp.watch('./sass/**/*.scss', css);
+}
+
+exports.css = css;
+exports.default = gulp.parallel(css, watch);
