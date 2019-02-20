@@ -19,6 +19,12 @@ module.exports = {
         }
     },
     module: {
+        asset: {
+            additionalFiles: {
+                jenericRobotoWoff : 'font/roboto-v18-cyrillic-ext_latin_cyrillic_vietnamese_greek-ext_greek_latin-ext-regular.woff',
+                jenericRobotoWoff2 : 'font/roboto-v18-cyrillic-ext_latin_cyrillic_vietnamese_greek-ext_greek_latin-ext-regular.woff2'
+            }
+        },
         i18n: {
             locales: ['en', 'de_DE', 'de'],
             defaultLocale: ['en'],

@@ -1,8 +1,43 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
 body {
   line-height: 20px;
   font-family: 'Roboto', sans-serif;
   font-size: 13px;
-  color: #eeeeee;
-  background-color: #111111;
-  height: 100%;
+  color: #333333;
+  background-color: $color-white;
+  height: auto;
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+}
+h1, .h1 {
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 40px;
+    padding-bottom: 20px;
+}
+h2, .h2 {
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+    padding-bottom: 10px;
+}
+h3, .h3 {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 28px;
+    padding-bottom: 10px;
+}
+ul {
+    padding-bottom: 30px;
+
+    li {
+        list-style-position: inside;
+    }
+}
+div {
+    box-sizing: border-box;
 }

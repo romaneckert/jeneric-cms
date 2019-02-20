@@ -1,6 +1,5 @@
 .DS_Store
 node_modules/
 /var
-/view/css/*
-/public
+/public/css
 !.gitkeep
