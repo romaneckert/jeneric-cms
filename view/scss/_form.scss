@@ -1,6 +1,6 @@
 ul {
     &.form-error {
-        
+
     }
 }
 
@@ -8,32 +8,78 @@ ul {
 
     position: relative;
     width:100%;
-    padding-bottom:30px;
+    padding-bottom:20px;
 
     label {
         position: absolute;
-        top: 0px;
-        left: 9px;
-        font-size: 10px;
-        line-height: 10px;
-        color: rgba( $color-white, 0.7);
+        z-index: 0;
+        left: 0px;
+    }
+
+    input:placeholder-shown + label {
+        top: 20px;
+        font-size: 14px;
+        line-height: 20px;
+        color: rgba( $color-blue, 0.4);
     }
 
     input {
+        position: relative;
+        z-index: 1;
         box-sizing: border-box;
         font-size: 14px;
         background: transparent;
         border: none;
         outline: none;
-        border-left: 1px solid rgba( $color-white, 0.1);
-        border-bottom: 1px solid rgba( $color-white, 0.1);
-        color: $color-white;
-        padding-top: 20px;
-        padding-bottom: 8px;
-        padding-left: 8px;
+        border-bottom: 1px solid rgba( $color-blue, 0.2);
+        color: $color-blue;
+        padding-top: 8px;
+        padding-bottom: 0px;
+        padding-left: 0px;
         padding-right: 8px;
         height: 50px;
         width: 100%;
     }
 
+    input::placeholder {
+        text-indent: -9999px;
+    }
+
+    input:focus + label,
+    label {
+        font-size: 11px;
+        line-height: 14px;
+        top: 0px;
+        color: $color-blue;
+        transition: all 0.2s ease;
+    }
+
+    input:focus {
+        width: 100%;
+        border-bottom: 1px solid $color-blue;
+        transition: all 1s ease;
+    }
+
+
+}
+
+button[type="submit"] {
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    outline: none;
+    color: $color-white;
+    font-weight: bold;
+    background: $color-red;
+    font-size: 14px;
+    line-height: 40px;
+    width:100%;
+    cursor: pointer;
+    border-radius: 2px;
+    text-shadow: 0 1px 3px rgba($color-blue, 0.6)
+}
+
+button[type="submit"]:hover {
+    background-color: $color-blue;
+    transition: all 0.5s ease;
 }

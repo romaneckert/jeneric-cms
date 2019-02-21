@@ -1,11 +1,11 @@
-.jeneric-page-panel {
+.jeneric-page-install {
     width: 100%;
     height: auto;
     min-height: 100%;
     position: fixed;
     background-color: $color-blue;
 
-    .jeneric-panel {
+    .jeneric-install {
         position: absolute;
         left: 50%;
         top: 50%;
@@ -17,3 +17,4 @@
         box-shadow: 0 0px 20px 6px rgba(#000000, 0.2)
     }
 }
+

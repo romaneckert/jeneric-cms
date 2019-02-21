@@ -15,19 +15,31 @@
                 "illegal_characters": "Das Passwort beinhaltet nicht erlaubte Zeichen."
             }
         },
+        "form": {
+            "label": {
+                "email": "E-Mail",
+                "password": "Passwort",
+                "password_repeat": "Passwort wiederholen"
+            },
+            "submit": "Absenden"
+        },
         "install": {
             "title": "Installation",
             "description": "Installation",
             "headline": "Legen Sie einen neuen Benutzer an.",
-            "form": {
-                "label": {
-                    "email": "E-Mail",
-                    "password": "Passwort"
-                },
-                "submit": "Absenden"
+            "check": {
+                "headline": "Bitte bestätigen Sie Ihre E-Mail-Adresse.",
+                "text": "Klicken Sie auf den Link in der E-Mail, die Sie gerade erhalten haben."
+            },
+            "email": {
+                "text": "Bitte klicke auf folgenden Link:",
+                "button": "Bestätigen"
             }
         },
         "user": {
+            "password": {
+                "headline": "Bitte gib dein Passwort ein."
+            },
             "email": {
                 "confirm": {
                     "subject": "Jeneric CMS | Bitte bestätigen Sie Ihre E-Mail-Adresse"

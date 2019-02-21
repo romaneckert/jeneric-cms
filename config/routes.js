@@ -1,5 +1,12 @@
 module.exports = {
     jeneric: {
+        user: {
+            password: {
+                path: '/jeneric/user/password/:passwordToken',
+                methods: 'get,post',
+                handler: 'jeneric/user/password'
+            }
+        },
         jeneric: {
             path: '/jeneric',
             methods: 'get,post',

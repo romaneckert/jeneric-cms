@@ -6,9 +6,9 @@ block append head
 
 block content
 
-    .jeneric-page.jeneric-page-login.jeneric-invert
+    .jeneric-page.jeneric-page-install
 
-        .jeneric-login
+        .jeneric-install
 
             h1.h3=trans('jeneric.install.headline')
 
@@ -16,9 +16,9 @@ block content
 
             +form(method='post' form=form)
                 .form-group
-                    label(for='email')=trans('jeneric.install.form.label.email')
-                    +textfield.form-control(type='email' name='email' form=form)
+                    +textfield.form-control(type='email' name='email' form=form required='required' placeholder=trans('jeneric.form.label.email'))
+                    label(for='email')=trans('jeneric.form.label.email')
                 .form-group
-                    label(for='password')=trans('jeneric.install.form.label.password')
-                    +textfield.form-control(type='password' name='password' form=form)
-                button.btn.btn-primary(type='submit')=trans('jeneric.install.form.submit')
+                    +textfield.form-control(type='password' name='password' form=form required='required' placeholder=trans('jeneric.form.label.password'))
+                    label(for='password')=trans('jeneric.form.label.password')
+                button.btn.btn-primary(type='submit')=trans('jeneric.form.submit')

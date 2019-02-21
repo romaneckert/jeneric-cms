@@ -4,13 +4,19 @@ class Install {
 
     async handle(req, res, next) {
 
+        if (1 === await this.model.user.countDocuments({ emailVerificationDate: { $exists: false } })) return this.handleUserCreatedButNotVerified(req, res, next);
+
         if (0 === await this.model.user.countDocuments()) return this.handleUserCreation(req, res, next);
 
         return res.redirect('/jeneric/sign-in');
 
     }
 
-    async handleUserCreation(req, res, next) {
+    async handleUserCreatedButNotVerified(req, res) {
+        return res.render('jeneric/install/user-check');
+    }
+
+    async handleUserCreation(req, res) {
 
         let user = new this.model.user();
         let form = new this.component.form({
@@ -96,7 +102,7 @@ class Install {
             });
         }
 
-        // generate password and save user
+        // generate password
         try {
             user.password = await bcrypt.hash(user.password, 10);
         } catch (err) {
@@ -124,7 +130,13 @@ class Install {
         // send email with confirm token
         try {
 
-            let html = await this.module.mail.render('jeneric/user/email/verify', user, res);
+            let verificationLink = 'https://test.jeneric/';
+
+            let html = await this.module.mail.render(
+                'jeneric/user/email/verify',
+                { verificationLink: verificationLink },
+                res
+            );
 
             await this.module.mail.send({
                 to: user.email,

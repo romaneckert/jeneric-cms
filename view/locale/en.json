@@ -15,19 +15,31 @@
                 "illegal_characters": "The password contains illegal characters."
             }
         },
+        "form": {
+            "label": {
+                "email": "Email",
+                "password": "Password",
+                "password_repeat": "Password Repeat"
+            },
+            "submit": "Submit"
+        },
         "install": {
             "title": "Install",
             "description": "Install",
             "headline": "Create a new user.",
-            "form": {
-                "label": {
-                    "email": "Email",
-                    "password": "Password"
-                },
-                "submit": "Submit"
+            "check": {
+                "headline": "Please confirm your email address.",
+                "text": "Click on the link in the email you just received."
+            },
+            "email": {
+                "text": "Please click on the following link:",
+                "button": "Confirm"
             }
         },
         "user": {
+            "password": {
+                "headline": "Please enter your password."
+            },
             "email": {
                 "confirm": {
                     "subject": "Jeneric CMS | Please confirm your email address"

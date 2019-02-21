@@ -9,11 +9,11 @@ module.exports = {
                     type: String,
                     required: true
                 },
+                emailVerificationDate: {
+                    type: Date
+                },
                 password: {
                     type: String,
-                },
-                passwordToken: {
-                    type: String
                 }
             }
         }
@@ -21,8 +21,8 @@ module.exports = {
     module: {
         asset: {
             additionalFiles: {
-                jenericRobotoWoff : 'font/roboto-v18-cyrillic-ext_latin_cyrillic_vietnamese_greek-ext_greek_latin-ext-regular.woff',
-                jenericRobotoWoff2 : 'font/roboto-v18-cyrillic-ext_latin_cyrillic_vietnamese_greek-ext_greek_latin-ext-regular.woff2'
+                jenericRobotoWoff: 'font/roboto-v18-cyrillic-ext_latin_cyrillic_vietnamese_greek-ext_greek_latin-ext-regular.woff',
+                jenericRobotoWoff2: 'font/roboto-v18-cyrillic-ext_latin_cyrillic_vietnamese_greek-ext_greek_latin-ext-regular.woff2'
             }
         },
         i18n: {

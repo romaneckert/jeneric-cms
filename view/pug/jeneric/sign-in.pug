@@ -5,11 +5,19 @@ block append head
     meta(name="description" content="Jeneric Login")
 
 block content
-    form(method='post')
-        .form-group
-            label(for='email') Email
-            input.form-control(id='email' type='email' name="email")
-        .form-group
-            label(for='password') Password
-            input.form-control(id='password' type='password' name="password")
-        button.btn.btn-primary(type='submit') Submit
+
+    .jeneric-page.jeneric-page-sign-in
+
+        .jeneric-sign-in
+
+            +formError(form=form)
+
+            +form(method='post' form=form)
+                .form-group
+                    +textfield.form-control(id='email' type='email' name='email' form=form required='required' placeholder=trans('jeneric.form.label.email'))
+                    label(for='email')=trans('jeneric.form.label.email')
+                .form-group
+                    +textfield.form-control(id='password' type='password' name='password' form=form required='required' placeholder=trans('jeneric.form.label.password'))
+                    label(for='password')=trans('jeneric.form.label.password')
+
+                button.btn.btn-primary(type='submit') Submit

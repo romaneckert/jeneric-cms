@@ -1,1 +1,6 @@
-| html email
+extends ../../email-layout.pug
+
+block content
+    p=trans('jeneric.install.email.text')
+
+    a(href=verificationLink)=trans('jeneric.install.email.button')
