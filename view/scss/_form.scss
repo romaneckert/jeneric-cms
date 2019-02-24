@@ -71,6 +71,7 @@ button[type="submit"] {
     outline: none;
     color: $color-white;
     background: $color-middle-blue;
+    background: $color-test;
     line-height: 40px;
     width:100%;
     cursor: pointer;
@@ -81,6 +82,6 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: $color-light-blue;
+    background-color: #FCA464;
     transition: all 0.5s ease;
 }
