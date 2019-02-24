@@ -6,19 +6,40 @@ block append head
 
 block content
 
-    .jeneric-page.jeneric-page-install
+    .jeneric-page.jeneric-page-panel
 
-        .jeneric-install
+        .jeneric-panel
 
-            h1.h3=trans('jeneric.install.headline')
+            .jeneric-logo
+                i.fas.fa-fire
+                span.jeneric-logo-sign-1 J
+                span.jeneric-logo-sign-2 E
+                span.jeneric-logo-sign-3 N
+                span.jeneric-logo-sign-4 E
+                span.jeneric-logo-sign-5 R
+                span.jeneric-logo-sign-6 I
+                span.jeneric-logo-sign-7 C
 
-            +formError(form=form)
+            .jeneric-panel-content
 
-            +form(method='post' form=form)
-                .form-group
-                    +textfield.form-control(type='email' name='email' form=form required='required' placeholder=trans('jeneric.form.label.email'))
-                    label(for='email')=trans('jeneric.form.label.email')
-                .form-group
-                    +textfield.form-control(type='password' name='password' form=form required='required' placeholder=trans('jeneric.form.label.password'))
-                    label(for='password')=trans('jeneric.form.label.password')
-                button.btn.btn-primary(type='submit')=trans('jeneric.form.submit')
+                h2 INSTALLATION
+
+                h2.h3=trans('jeneric.install.headline')
+
+                .jeneric-hint
+
+                    p In hac habitasse platea dictumst. Maecenas malesuada.. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Fusce pharetra convallis urna.
+
+                +formError(form=form)
+
+                +form(method='post' form=form)
+                    .form-group
+                        +textfield.form-control(type='email' name='email' form=form required='required' placeholder=trans('jeneric.form.label.email'))
+                        label(for='email')=trans('jeneric.form.label.email')
+                    button.btn.btn-primary(type='submit')=trans('jeneric.form.submit')
+
+            .jeneric-panel-footer
+                p
+                    | JENERIC Content Management System
+                    br
+

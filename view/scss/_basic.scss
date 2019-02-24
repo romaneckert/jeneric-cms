@@ -1,39 +1,56 @@
-* {
-    margin: 0px;
-    padding: 0px;
-}
 body {
   line-height: 20px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 13px;
-  color: #333333;
-  background-color: $color-white;
+  font-weight: 500;
+  color: $color-dark-grey;
+  //background-color: $color-light-grey;
+  background-color: $color-dark-blue;
   height: auto;
   position: fixed;
   width: 100%;
   min-height: 100%;
+  padding:0px;
+  margin:0px;
+}
+input, button, label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+}
+h1, h2, h3, h4 {
+    margin: 0px;
 }
 h1, .h1 {
     font-weight: normal;
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 24px;
+    line-height: 30px;
     padding-bottom: 20px;
-    color: $color-blue;
+    color: $color-dark-grey;
 }
 h2, .h2 {
     font-weight: normal;
-    font-size: 24px;
-    line-height: 32px;
-    padding-bottom: 10px;
-    color: $color-blue;
+    font-size: 18px;
+    line-height: 24px;
+    padding-bottom: 20px;
+    color: $color-dark-grey;
 }
 h3, .h3 {
     font-weight: normal;
-    font-size: 20px;
-    line-height: 28px;
-    padding-bottom: 10px;
-    color: $color-blue;
+    font-size: 16px;
+    line-height: 20px;
+    padding-bottom: 20px;
+    color: $color-dark-grey;
 }
+
+h4, .h4 {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    padding-bottom: 20px;
+    color: $color-dark-grey;
+}
+
 ul {
     padding-bottom: 30px;
 
@@ -41,6 +58,15 @@ ul {
         list-style-position: inside;
     }
 }
+p {
+    margin: 0px;
+    padding: 0px 0px 10px 0px;
+}
 div {
     box-sizing: border-box;
+    display: block;
+}
+form {
+    box-sizing: border-box;
+    overflow:hidden;
 }

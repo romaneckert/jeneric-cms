@@ -3,17 +3,27 @@
     height: auto;
     min-height: 100%;
     position: fixed;
-    background-color: $color-blue;
+    background: linear-gradient(135deg, lighten($color-dark-blue, 10%) 0%, darken($color-dark-blue, 10%) 100%);
 
     .jeneric-panel {
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 560px;
-        padding: 50px;
-        background-color: $color-white;
+        width: 360px;
         border-radius: 2px;
-        box-shadow: 0 0px 20px 6px rgba(#000000, 0.2)
+        //box-shadow: 0 0px 20px 6px rgba(#000000, 0.1);
+        background-color: $color-white;
+        box-shadow: 0 10px 40px 0 rgba($color-black, 0.05), 0 2px 8px 0 rgba($color-black, 0.07);
+        //border: 1px solid $color-light-grey-2;
+    }
+
+    .jeneric-panel-content {
+        padding: 30px;
+    }
+
+    .jeneric-panel-footer {
+        border-top: 1px solid rgba($color-dark-blue, 0.2);
+        padding: 20px 30px 20px 30px;
     }
 }

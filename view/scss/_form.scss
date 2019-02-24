@@ -6,9 +6,10 @@ ul {
 
 .form-group {
 
+    margin-top:20px;
     position: relative;
     width:100%;
-    padding-bottom:20px;
+    margin-bottom:30px;
 
     label {
         position: absolute;
@@ -17,27 +18,27 @@ ul {
     }
 
     input:placeholder-shown + label {
-        top: 20px;
+        top: 6px;
         font-size: 14px;
         line-height: 20px;
-        color: rgba( $color-blue, 0.4);
+        color: rgba($color-dark-grey, 0.5);
     }
 
     input {
         position: relative;
         z-index: 1;
         box-sizing: border-box;
-        font-size: 14px;
+        line-height: 30px;
         background: transparent;
         border: none;
         outline: none;
-        border-bottom: 1px solid rgba( $color-blue, 0.2);
-        color: $color-blue;
-        padding-top: 8px;
+        border-bottom: 1px solid rgba($color-dark-blue, 0.2);
+        color: $color-dark-grey;
+        padding-top: 0px;
         padding-bottom: 0px;
         padding-left: 0px;
-        padding-right: 8px;
-        height: 50px;
+        padding-right: 0px;
+        height: 30px;
         width: 100%;
     }
 
@@ -49,14 +50,14 @@ ul {
     label {
         font-size: 11px;
         line-height: 14px;
-        top: 0px;
-        color: $color-blue;
+        top: -14px;
+        color: $color-dark-grey;
         transition: all 0.2s ease;
     }
 
     input:focus {
         width: 100%;
-        border-bottom: 1px solid $color-blue;
+        border-bottom: 1px solid $color-middle-blue;
         transition: all 1s ease;
     }
 
@@ -69,17 +70,17 @@ button[type="submit"] {
     border: none;
     outline: none;
     color: $color-white;
-    font-weight: bold;
-    background: $color-red;
-    font-size: 14px;
+    background: $color-middle-blue;
     line-height: 40px;
     width:100%;
     cursor: pointer;
     border-radius: 2px;
-    text-shadow: 0 1px 3px rgba($color-blue, 0.6)
+    //text-shadow: 0 1px 3px rgba($color-black, 0.6);
+    //text-transform: uppercase;
+    text-shadow: 0px 1px 3px rgba(#000000,0.6);
 }
 
 button[type="submit"]:hover {
-    background-color: $color-blue;
+    background-color: $color-light-blue;
     transition: all 0.5s ease;
 }
