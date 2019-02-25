@@ -1,17 +1,13 @@
-extends ../layout.pug
+extends ../layout-signed-out.pug
 
 block append head
-    title=trans('jeneric.install.title')
-    meta(name="description" content=trans('jeneric.install.description'))
+    title=trans('jeneric.install.user_check.title')
+    meta(name="description" content=trans('jeneric.install.user_check.description'))
 
 block content
 
-    .jeneric-page.jeneric-page-install
+    h1.h3=trans('jeneric.install.user_check.headline')
 
-        .jeneric-install
-
-            h1.h3=trans('jeneric.install.check.headline')
-
-            p=trans('jeneric.install.check.text')
+    p=trans('jeneric.install.user_check.text')
 
 

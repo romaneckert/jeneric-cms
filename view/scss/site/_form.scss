@@ -12,56 +12,37 @@ ul {
     margin-bottom:30px;
 
     label {
-        position: absolute;
-        z-index: 0;
-        left: 0px;
-    }
-
-    input:placeholder-shown + label {
-        top: 6px;
-        font-size: 14px;
-        line-height: 20px;
-        color: rgba($color-dark-grey, 0.5);
+        padding-left: 6px;
+        font-size: 12px;
     }
 
     input {
-        position: relative;
-        z-index: 1;
         box-sizing: border-box;
         line-height: 30px;
-        background: transparent;
-        border: none;
+        background: $color-light-grey;
+        border: 1px solid rgba($color-dark-blue, 0.2);
         outline: none;
-        border-bottom: 1px solid rgba($color-dark-blue, 0.2);
         color: $color-dark-grey;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        padding-left: 0px;
-        padding-right: 0px;
+        padding: 5px;
         height: 30px;
         width: 100%;
-    }
-
-    input::placeholder {
-        text-indent: -9999px;
-    }
-
-    input:focus + label,
-    label {
-        font-size: 11px;
-        line-height: 14px;
-        top: -14px;
-        color: $color-dark-grey;
-        transition: all 0.2s ease;
+        border-radius: 2px;
     }
 
     input:focus {
         width: 100%;
-        border-bottom: 1px solid $color-middle-blue;
-        transition: all 1s ease;
+        border: 1px solid $color-middle-blue;
+
+        &::placeholder {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+        }
     }
 
-
+    input::placeholder {
+        color: rgba($color-dark-grey, 0.5);
+    }
 }
 
 button[type="submit"] {

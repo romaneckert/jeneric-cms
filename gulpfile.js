@@ -8,8 +8,8 @@ sass.compiler = require('node-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const stripCssComments = require('gulp-strip-css-comments');
 
-function css() {
-    return gulp.src('./view/scss/style.scss')
+function cssSite() {
+    return gulp.src('./view/scss/site/style.scss')
         .pipe(
             sass({
                 outputStyle: 'compressed'
@@ -26,12 +26,34 @@ function css() {
                 preserve: false
             })
         )
-        .pipe(gulp.dest('./public/jeneric/css'));
+        .pipe(gulp.dest('./public/jeneric/site/css'));
+}
+
+function cssEmail() {
+    return gulp.src('./view/scss/email/style.scss')
+        .pipe(
+            sass({
+                outputStyle: 'compressed'
+            }).on('error', sass.logError)
+        )
+        .pipe(
+            autoprefixer({
+                browsers: ['last 5 versions', 'Firefox ESR', 'not ie <= 8'],
+                cascade: false
+            })
+        )
+        .pipe(
+            stripCssComments({
+                preserve: false
+            })
+        )
+        .pipe(gulp.dest('./public/jeneric/email/css'));
 }
 
 function watch() {
-    gulp.watch('./view/scss/**/*.scss', css);
+    gulp.watch('./view/scss/**/*.scss', gulp.parallel(cssSite, cssEmail));
 }
 
-exports.css = css;
-exports.default = gulp.parallel(css, watch);
+exports.cssSite = cssSite;
+exports.cssEmail = cssEmail;
+exports.default = gulp.parallel(cssSite, cssEmail, watch);

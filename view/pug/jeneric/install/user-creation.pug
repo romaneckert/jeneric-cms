@@ -1,44 +1,26 @@
-extends ../layout.pug
+extends ../layout-signed-out.pug
 
 block append head
-    title=trans('jeneric.install.title')
-    meta(name="description" content=trans('jeneric.install.description'))
+    title=trans('jeneric.install.user_creation.title')
+    meta(name="description" content=trans('jeneric.install.user_creation.description'))
 
 block content
 
-    .jeneric-page.jeneric-page-panel
+    h2 INSTALLATION
 
-        .jeneric-panel
+    h2.h3=trans('jeneric.install.user_creation.headline')
 
-            .jeneric-logo
-                span J
-                span E
-                span N
-                span E
-                span R
-                span I
-                span C
+    .text
+        p=trans('jeneric.install.user_creation.text')
 
-            .jeneric-panel-content
+    +formError(form=form)
 
-                h2 INSTALLATION
+    +form(method='post' form=form)
+        .form-group
+            label(for='email')=trans('jeneric.form.label.email')
+            +textfield.form-control(type='email' name='email' form=form required='required')
 
-                h2.h3=trans('jeneric.install.headline')
+        button.btn.btn-primary(type='submit')=trans('jeneric.form.submit')
 
-                .jeneric-hint
 
-                    p In hac habitasse platea dictumst. Maecenas malesuada.. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Fusce pharetra convallis urna.
-
-                +formError(form=form)
-
-                +form(method='post' form=form)
-                    .form-group
-                        +textfield.form-control(type='email' name='email' form=form required='required' placeholder=trans('jeneric.form.label.email'))
-                        label(for='email')=trans('jeneric.form.label.email')
-                    button.btn.btn-primary(type='submit')=trans('jeneric.form.submit')
-
-            .jeneric-panel-footer
-                p
-                    | JENERIC Content Management System
-                    br
 

@@ -23,13 +23,23 @@
             },
             "submit": "Absenden"
         },
+        "panel": {
+            "footer": {
+                "text": "Ein kostenloses Open Source Content Management System"
+            }
+        },
         "install": {
-            "title": "Installation",
-            "description": "Installation",
-            "headline": "Legen Sie einen neuen Benutzer an.",
-            "check": {
+            "user_creation": {
+                "title": "Installation",
+                "description": "Installation",
+                "headline": "Legen Sie einen neuen Benutzer an.",
+                "text": "Bitte geben Sie Ihre E-Mail-Adresse ein. Wir senden Ihnen einen Link zur Erstellung eines Passworts zu."
+            },
+            "user_check": {
+                "title": "Installation",
+                "description": "Installation",
                 "headline": "Bitte bestätigen Sie Ihre E-Mail-Adresse.",
-                "text": "Klicken Sie auf den Link in der E-Mail, die Sie gerade erhalten haben."
+                "text": "Klicken Sie auf den Link in der E-Mail, die Sie erhalten haben."
             },
             "email": {
                 "text": "Bitte klicke auf folgenden Link:",

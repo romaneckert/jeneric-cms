@@ -4,16 +4,18 @@ class Install {
 
     async handle(req, res, next) {
 
-        if (1 === await this.model.user.countDocuments({ emailVerificationDate: { $exists: false } })) return this.handleUserCreatedButNotVerified(req, res, next);
+        if (1 === await this.model.user.countDocuments({ emailVerificationDate: { $exists: false } })
+            && 1 === await this.model.user.countDocuments()
+        ) {
+            return res.render('jeneric/install/user-check');
+        }
 
-        if (0 === await this.model.user.countDocuments()) return this.handleUserCreation(req, res, next);
+        if (0 === await this.model.user.countDocuments()) {
+            return this.handleUserCreation(req, res, next);
+        }
 
         return res.redirect('/jeneric/sign-in');
 
-    }
-
-    async handleUserCreatedButNotVerified(req, res) {
-        return res.render('jeneric/install/user-check');
     }
 
     async handleUserCreation(req, res) {
@@ -30,53 +32,6 @@ class Install {
                         message: 'jeneric.error.email.not_valid'
                     },
                 ]
-            },
-            password: {
-                type: String,
-                validate: [
-                    {
-                        validator: (password) => {
-                            return /\d/.test(password);
-                        },
-                        message: 'jeneric.error.password.one_number_required'
-                    },
-                    {
-                        validator: (password) => {
-                            return /[a-zA-ZöäüÖÜA]/.test(password);
-                        },
-                        message: 'jeneric.error.password.one_letter_required'
-                    },
-                    {
-                        validator: (password) => {
-                            return /[\@\^\#\(\)\[\]\{\}\?\!\$\%\&\/\=\*\+\~\,\.\;\:\<\>\-\_]/.test(password);
-                        },
-                        message: 'jeneric.error.password.one_special_char_required'
-                    },
-                    {
-                        validator: (password) => {
-                            return password.length > 7;
-                        },
-                        message: 'jeneric.error.password.min_length_8'
-                    },
-                    {
-                        validator: (password) => {
-                            return password.length < 101;
-                        },
-                        message: 'jeneric.error.password.max_length_100'
-                    },
-                    {
-                        validator: (password) => {
-
-                            for (let char of password) {
-                                if (-1 === 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZöüäÖÜÄ0123456789@^#()[]{}?!$%&/=*+~,.;:<>-_'.split('').indexOf(char)) return false;
-                            }
-
-                            return true;
-                        },
-                        message: 'jeneric.error.password.illegal_characters'
-                    }
-                ],
-
             }
         }, user);
 
@@ -104,7 +59,7 @@ class Install {
 
         // generate password
         try {
-            user.password = await bcrypt.hash(user.password, 10);
+            //user.password = await bcrypt.hash(user.password, 10);
         } catch (err) {
 
             form.addError('password', 'jeneric.error.data_process');

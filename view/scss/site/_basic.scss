@@ -1,8 +1,8 @@
 body {
   line-height: 20px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: normal;
   color: $color-dark-grey;
   //background-color: $color-light-grey;
   background-color: $color-dark-blue;
@@ -15,28 +15,28 @@ body {
 }
 input, button, label {
     font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: normal;
 }
 h1, h2, h3, h4 {
     margin: 0px;
 }
 h1, .h1 {
-    font-weight: normal;
+    font-weight: 500;
     font-size: 24px;
     line-height: 30px;
     padding-bottom: 20px;
     color: $color-dark-grey;
 }
 h2, .h2 {
-    font-weight: normal;
+    font-weight: 500;
     font-size: 18px;
     line-height: 24px;
     padding-bottom: 20px;
     color: $color-dark-grey;
 }
 h3, .h3 {
-    font-weight: normal;
+    font-weight: 500;
     font-size: 16px;
     line-height: 20px;
     padding-bottom: 20px;
@@ -44,7 +44,7 @@ h3, .h3 {
 }
 
 h4, .h4 {
-    font-weight: normal;
+    font-weight: 500;
     font-size: 14px;
     line-height: 18px;
     padding-bottom: 20px;
@@ -69,4 +69,7 @@ div {
 form {
     box-sizing: border-box;
     overflow:hidden;
+}
+.text {
+    padding-bottom: 10px;
 }
