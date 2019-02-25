@@ -70,8 +70,7 @@ button[type="submit"] {
     border: none;
     outline: none;
     color: $color-white;
-    background: $color-middle-blue;
-    background: $color-test;
+    background: $color-pink;
     line-height: 40px;
     width:100%;
     cursor: pointer;
@@ -82,6 +81,6 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #FCA464;
+    background-color: $color-orange;
     transition: all 0.5s ease;
 }
