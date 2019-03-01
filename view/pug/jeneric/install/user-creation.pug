@@ -10,10 +10,10 @@ block content
 
     h2.h3=trans('jeneric.install.user_creation.headline')
 
-    .text
+    .jeneric-text
         p=trans('jeneric.install.user_creation.text')
 
-    +formError(form=form)
+    +error(errors=form.errors)
 
     +form(method='post' form=form)
         .form-group
