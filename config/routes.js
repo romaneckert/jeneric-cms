@@ -17,7 +17,12 @@ module.exports = {
             methods: 'get,post',
             handler: 'jeneric/install'
         },
-        login: {
+        email: {
+            path: '/jeneric/email',
+            methods: 'get,post',
+            handler: 'jeneric/email'
+        },
+        signIn: {
             path: '/jeneric/sign-in',
             methods: 'get,post',
             handler: 'jeneric/signIn'

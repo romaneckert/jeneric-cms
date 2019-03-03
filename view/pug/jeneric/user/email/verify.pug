@@ -1,6 +1,14 @@
 extends ../../layout-email.pug
 
-block content
-    p=trans('jeneric.install.email.text')
+block preheader
+    | Text
 
-    a(href=verificationLink)=trans('jeneric.install.email.button')
+block content
+
+    h1(style='color: #333333; font-family: "Montserrat", Arial, sans-serif; font-weight: 500; font-size: 18px; line-height: 24px; margin: 0px 0px 20px 0px;') Set Password
+
+    p(style='color: #333333; font-family: "Montserrat", Arial, sans-serif; font-weight: 400; font-size: 13px; line-height: 20px; margin: 0px 0px 20px 0px;')=trans('jeneric.install.email.text')
+
+    a(href='https://litmus.com' target='_blank' style='line-height: 40px; height: 40px; text-align: center; background-color: #D04A73; width: 100%; font-size: 13px; font-weight: 400; font-family: "Montserrat", Arial, sans-serif; color: #ffffff; text-decoration: none; text-decoration: none; padding: 0px; border-radius: 2px; border: 0px solid #D04A73; display: inline-block; text-shadow: 0px 1px 3px rgba(0,0,0,0.6);')
+        =trans('jeneric.install.email.button')
+
