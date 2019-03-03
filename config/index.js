@@ -2,22 +2,6 @@ module.exports = {
     core: {
         cluster: true
     },
-    model: {
-        user: {
-            schema: {
-                email: {
-                    type: String,
-                    required: true
-                },
-                emailVerificationDate: {
-                    type: Date
-                },
-                password: {
-                    type: String,
-                }
-            }
-        }
-    },
     module: {
         asset: {
             additionalFiles: {

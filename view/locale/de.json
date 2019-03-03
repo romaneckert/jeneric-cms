@@ -35,7 +35,7 @@
                 "headline": "Legen Sie einen neuen Benutzer an.",
                 "text": "Bitte geben Sie Ihre E-Mail-Adresse ein. Wir senden Ihnen einen Link zur Erstellung eines Passworts zu."
             },
-            "user_check": {
+            "user_creation_success": {
                 "title": "Installation",
                 "description": "Installation",
                 "headline": "Bitte bestätigen Sie Ihre E-Mail-Adresse.",

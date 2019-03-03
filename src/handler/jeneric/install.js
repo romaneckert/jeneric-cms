@@ -1,39 +1,14 @@
 const bcrypt = require('bcrypt');
+const EmailForm = require('../../form/user/email');
 
 class Install {
 
     async handle(req, res, next) {
 
-        if (1 === await this.model.user.countDocuments({ emailVerificationDate: { $exists: false } })
-            && 1 === await this.model.user.countDocuments()
-        ) {
-            return res.render('jeneric/install/user-check');
-        }
-
-        if (0 === await this.model.user.countDocuments()) {
-            return this.handleUserCreation(req, res, next);
-        }
-
-        return res.redirect('/jeneric/sign-in');
-
-    }
-
-    async handleUserCreation(req, res) {
+        if (0 < await this.model.user.countDocuments()) res.redirect('/jeneric/sign-in');
 
         let user = new this.model.user();
-        let form = new this.component.form({
-            email: {
-                type: String,
-                validate: [
-                    {
-                        validator: (email) => {
-                            return /\S+@\S+\.\S+/.test(email);
-                        },
-                        message: 'jeneric.error.email.not_valid'
-                    },
-                ]
-            }
-        }, user);
+        let form = new EmailForm(user);
 
         form.handle(req.body);
 
@@ -99,7 +74,10 @@ class Install {
                 html: html
             });
 
-            return res.redirect('/jeneric/install');
+            return res.render('jeneric/install/user-creation-success', {
+                form: form
+            });
+            
         } catch (err) {
             form.addError('user', 'jeneric.error.send_email');
             this.logger.error('can not send email to user', err);

@@ -35,7 +35,7 @@
                 "headline": "Create a new user.",
                 "text": "Please enter your email address. We will send you a link to create a password."
             },
-            "user_check": {
+            "user_creation_success": {
                 "title": "Install",
                 "description": "Install",
                 "headline": "Please confirm your email address.",
