@@ -1,6 +1,6 @@
 const Form = require('@jeneric/core/src/form')
 
-class EmailForm extends Form {
+class SignInForm extends Form {
 
     constructor(user) {
 
@@ -8,10 +8,14 @@ class EmailForm extends Form {
             email: {
                 type: String,
                 validate: require('../../validator/email')
+            },
+            password: {
+                type: String,
+                required: [true, 'jeneric.error.password.required']
             }
         }, user);
     }
 
 }
 
-module.exports = EmailForm;
+module.exports = SignInForm;

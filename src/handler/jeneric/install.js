@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const crypto = require('crypto');
 const EmailForm = require('../../form/user/email');
 
 class Install {
@@ -25,20 +26,26 @@ class Install {
             }
         } catch (err) {
 
-            this.logger.error(err);
+            this.logger.error('user with email already exists', err);
 
             return res.render('jeneric/install/user-creation', {
                 form: form
             });
         }
 
-        // generate password
+        // generate password token
         try {
-            //user.password = await bcrypt.hash(user.password, 10);
+
+            let passwordToken = crypto.randomBytes(32).toString('hex');
+
+            if (0 < await this.model.user.countDocuments({ passwordToken: passwordToken })) throw new Error();
+
+            user.passwordToken = passwordToken;
+
         } catch (err) {
 
             form.addError('password', 'jeneric.error.data_process');
-            this.logger.error('can not generate password for user', err);
+            this.logger.error('can not generate password token for user', err);
 
             return res.render('jeneric/install/user-creation', {
                 form: form
@@ -77,7 +84,7 @@ class Install {
             return res.render('jeneric/install/user-creation-success', {
                 form: form
             });
-            
+
         } catch (err) {
             form.addError('user', 'jeneric.error.send_email');
             this.logger.error('can not send email to user', err);

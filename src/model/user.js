@@ -8,15 +8,19 @@ class User extends Model {
         this._schema = {
             email: {
                 type: String,
-                required: true
+                validate: require('../validator/email')
             },
             emailVerificationDate: {
                 type: Date
             },
             password: {
-                type: String,
+                type: String
+            },
+            passwordToken: {
+                type: String
             }
         };
+
     }
 
 }

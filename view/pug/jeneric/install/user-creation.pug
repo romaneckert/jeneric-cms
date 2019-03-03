@@ -6,7 +6,7 @@ block append head
 
 block content
 
-    h2 INSTALLATION
+    h2=trans('jeneric.install.user_creation.title')
 
     h2.h3=trans('jeneric.install.user_creation.headline')
 
@@ -18,7 +18,7 @@ block content
     +form(method='post' form=form)
         .form-group
             label(for='email')=trans('jeneric.form.label.email')
-            +textfield.form-control(type='email' name='email' form=form required='required')
+            +textfield.form-control(id='email' type='email' name='email' form=form required='required')
 
         button.btn.btn-primary(type='submit')=trans('jeneric.form.submit')
 

@@ -1,4 +1,4 @@
-extends layout.pug
+extends ../layout-signed-out.pug
 
 block append head
     title Login
@@ -10,14 +10,15 @@ block content
 
         .jeneric-sign-in
 
-            +formError(form=form)
+            +error(errors=form.errors)
 
             +form(method='post' form=form)
                 .form-group
-                    +textfield.form-control(id='email' type='email' name='email' form=form required='required' placeholder=trans('jeneric.form.label.email'))
                     label(for='email')=trans('jeneric.form.label.email')
+                    +textfield.form-control(id='email' type='email' name='email' form=form required='required')
+
                 .form-group
-                    +textfield.form-control(id='password' type='password' name='password' form=form required='required' placeholder=trans('jeneric.form.label.password'))
                     label(for='password')=trans('jeneric.form.label.password')
+                    +textfield.form-control(id='password' type='password' name='password' form=form required='required')
 
                 button.btn.btn-primary(type='submit') Submit
