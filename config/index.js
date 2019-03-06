@@ -1,6 +1,9 @@
 module.exports = {
     core: {
-        cluster: true
+        cluster: true,
+    },
+    env: {
+        baseUrl: 'http://localhost:3000'
     },
     module: {
         asset: {

@@ -67,11 +67,11 @@ class Install {
         // send email with confirm token
         try {
 
-            let verificationLink = 'https://test.jeneric/';
-
             let html = await this.module.mail.render(
-                'jeneric/user/email/verify',
-                { verificationLink: verificationLink },
+                'jeneric/user/email/set-password',
+                {
+                    user: user
+                },
                 res
             );
 

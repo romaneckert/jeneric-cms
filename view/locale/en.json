@@ -13,7 +13,8 @@
                 "min_length_8": "The password must be at least 8 characters long.",
                 "max_length_64": "The maximum length of the password is 100 characters.",
                 "illegal_characters": "The password contains illegal characters."
-            }
+            },
+            "password_repeat": "The passwords do not match."
         },
         "form": {
             "label": {
@@ -32,14 +33,15 @@
             "user_creation": {
                 "title": "Install",
                 "description": "Install",
-                "headline": "Create a new user.",
+                "headline": "Install",
+                "subline": "Create a new user.",
                 "text": "Please enter your email address. We will send you a link to create a password."
             },
             "user_creation_success": {
                 "title": "Install",
                 "description": "Install",
-                "headline": "Please confirm your email address.",
-                "text": "Click on the link in the email you received."
+                "headline": "Please create your password",
+                "text": "Click on the link in the email you received. It may take a few minutes for you to receive the email."
             },
             "email": {
                 "text": "Please click on the following link:",
@@ -48,11 +50,17 @@
         },
         "user": {
             "password": {
-                "headline": "Please enter your password."
+                "title": "Create password",
+                "description": "Please enter your password.",
+                "headline": "Create password",
+                "text": "Please enter your password."
             },
             "email": {
-                "confirm": {
-                    "subject": "Jeneric CMS | Please confirm your email address"
+                "password": {
+                    "subject": "Jeneric CMS | User Account - Create Password",
+                    "headline": "Create password",
+                    "text": "Click on the following link and enter your password.",
+                    "button": "Create password"
                 }
             }
         }

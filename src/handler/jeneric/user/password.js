@@ -1,4 +1,5 @@
 const PasswordForm = require('../../../form/user/password');
+const bcrypt = require('bcrypt');
 
 class Password {
 
@@ -22,15 +23,33 @@ class Password {
         try {
             user.password = await bcrypt.hash(user.password, 10);
         } catch (err) {
-
             form.addError('password', 'jeneric.error.data_process');
             this.logger.error('can not generate password for user', err);
 
-            return res.render('jeneric/install/user-creation', {
+            return res.render('jeneric/user/password', {
                 form: form
             });
         }
 
+        // remove passwordToken
+        user.passwordToken = undefined;
+
+        // add password creation date
+        user.passwordCreationDate = new Date();
+
+        // save user
+        try {
+            await user.save();
+        } catch (err) {
+            form.addError('user', 'jeneric.error.data_process');
+            this.logger.error('can not save user', err);
+
+            return res.render('jeneric/user/password', {
+                form: form
+            });
+        }
+
+        res.redirect('/jeneric/sign-in');
     }
 
 }

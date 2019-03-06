@@ -8,6 +8,10 @@ class PasswordForm extends Form {
             password: {
                 type: String,
                 validate: require('../../validator/password'),
+            },
+            passwordRepeat: {
+                type: String,
+                validate: require('../../validator/password-repeat'),
             }
         }, user);
     }

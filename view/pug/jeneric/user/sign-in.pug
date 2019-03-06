@@ -6,19 +6,15 @@ block append head
 
 block content
 
-    .jeneric-page.jeneric-page-sign-in
+    +error(errors=form.errors)
 
-        .jeneric-sign-in
+    +form(method='post' form=form)
+        .form-group
+            label(for='email')=trans('jeneric.form.label.email')
+            +textfield.form-control(id='email' type='email' name='email' form=form required='required')
 
-            +error(errors=form.errors)
+        .form-group
+            label(for='password')=trans('jeneric.form.label.password')
+            +textfield.form-control(id='password' type='password' name='password' form=form required='required')
 
-            +form(method='post' form=form)
-                .form-group
-                    label(for='email')=trans('jeneric.form.label.email')
-                    +textfield.form-control(id='email' type='email' name='email' form=form required='required')
-
-                .form-group
-                    label(for='password')=trans('jeneric.form.label.password')
-                    +textfield.form-control(id='password' type='password' name='password' form=form required='required')
-
-                button.btn.btn-primary(type='submit') Submit
+        button.btn.btn-primary(type='submit') Submit

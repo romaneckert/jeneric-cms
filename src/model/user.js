@@ -10,14 +10,14 @@ class User extends Model {
                 type: String,
                 validate: require('../validator/email')
             },
-            emailVerificationDate: {
-                type: Date
-            },
             password: {
                 type: String
             },
             passwordToken: {
                 type: String
+            },
+            passwordCreationDate: {
+                type: Date
             }
         };
 
