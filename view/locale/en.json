@@ -12,9 +12,9 @@
                 "one_special_char_required": "The password must contain at least one special character.",
                 "min_length_8": "The password must be at least 8 characters long.",
                 "max_length_64": "The maximum length of the password is 100 characters.",
-                "illegal_characters": "The password contains illegal characters."
-            },
-            "password_repeat": "The passwords do not match."
+                "illegal_characters": "The password contains illegal characters.",
+                "password_repeat": "The passwords do not match."
+            }
         },
         "form": {
             "label": {
