@@ -7,13 +7,20 @@ class Password {
 
         let user = await this.model.user.findOne({ passwordToken: req.params.passwordToken });
 
+        // return 404 if user not found
         if (null === user) return next();
 
+        // return password token expired after 24h
+        if (new Date() - user.passwordTokenCreationDate > 24 * 60 * 60 * 1000) {
+            return res.render('jeneric/user/password-token-expired');
+        }
+
+        // create password form
         let form = new PasswordForm(user);
 
         form.handle(req.body);
 
-        if (!form.submitted || !form.valid) {
+        if (!form.valid) {
             return res.render('jeneric/user/password', {
                 form: form
             });
@@ -31,8 +38,11 @@ class Password {
             });
         }
 
-        // remove passwordToken
+        // remove password token
         user.passwordToken = undefined;
+
+        // remove password token creation date
+        user.passwordTokenCreationDate = undefined;
 
         // add password creation date
         user.passwordCreationDate = new Date();
@@ -49,11 +59,9 @@ class Password {
             });
         }
 
-        res.redirect('/jeneric/sign-in');
+        res.redirect('/jeneric/user/sign-in');
     }
 
 }
 
-
 module.exports = Password;
-

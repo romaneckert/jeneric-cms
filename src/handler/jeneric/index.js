@@ -4,7 +4,7 @@ class Index {
 
         if (0 === await this.model.user.countDocuments()) return res.redirect('/jeneric/install');
 
-        return res.redirect('/jeneric/sign-in');
+        return res.redirect('/jeneric/user/sign-in');
 
     }
 

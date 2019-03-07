@@ -3,24 +3,25 @@ module.exports = {
         user: {
             password: {
                 path: '/jeneric/user/password/:passwordToken',
-                methods: 'get,post',
-                handler: 'jeneric/user/password'
+                methods: ['get', 'post'],
+            },
+            passwordReset: {
+                path: '/jeneric/user/password-reset',
+                methods: ['get', 'post'],
+            },
+            signIn: {
+                path: '/jeneric/user/sign-in',
+                methods: ['get', 'post'],
             }
         },
-        jeneric: {
+        index: {
             path: '/jeneric',
-            methods: 'get,post',
-            handler: 'jeneric/index'
+            methods: ['get', 'post'],
         },
         install: {
             path: '/jeneric/install',
-            methods: 'get,post',
-            handler: 'jeneric/install'
-        },
-        signIn: {
-            path: '/jeneric/sign-in',
-            methods: 'get,post',
-            handler: 'jeneric/signIn'
+            methods: ['get', 'post'],
         }
+
     }
 };

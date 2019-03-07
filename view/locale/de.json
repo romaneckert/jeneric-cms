@@ -14,6 +14,9 @@
                 "max_length_64": "Das Passwort darf maximal 100 Zeichen lang sein.",
                 "illegal_characters": "Das Passwort beinhaltet nicht erlaubte Zeichen.",
                 "password_repeat": "Die Passwörter stimmen nicht überein."
+            },
+            "user": {
+                "incorrect_username_or_password": "Bitte überprüfen Sie Ihre Eingaben. Ihre Emailadresse oder Ihr Passwort sind nicht korrekt. "
             }
         },
         "form": {
@@ -35,13 +38,13 @@
                 "description": "Installation",
                 "headline": "Installation",
                 "subline": "Legen Sie einen neuen Benutzer an.",
-                "text": "Klicken Sie auf den Link in der E-Mail, die Sie erhalten haben. Es kann einige Minuten dauern, bis Sie die E-Mail erhalten haben."
+                "text": "Bitte geben Sie Ihre E-Mail-Adresse ein. Wir senden Ihnen einen Link zur Erstellung eines Passworts zu."
             },
             "user_creation_success": {
                 "title": "Installation",
                 "description": "Installation",
                 "headline": "Bitte erstellen Sie Ihr Passwort",
-                "text": "Klicken Sie auf den Link in der E-Mail, die Sie erhalten haben."
+                "text": "Klicken Sie auf den Link in der E-Mail, die Sie erhalten haben. Es kann einige Minuten dauern, bis Sie die E-Mail erhalten haben."
             },
             "email": {
                 "text": "Bitte klicke auf folgenden Link:",
@@ -54,6 +57,24 @@
                 "description": "Bitte geben Sie Ihr Passwort ein.",
                 "headline": "Passwort erstellen",
                 "text": "Bitte geben Sie Ihr Passwort ein."
+            },
+            "password_reset": {
+                "title": "Passwort zurücksetzen",
+                "description": "Passwort zurücksetzen",
+                "headline": "Passwort zurücksetzen",
+                "text": "Bitte geben Sie Ihre E-Mail-Adresse ein. Wir senden Ihnen einen Link zur Erstellung eines Passworts zu."
+            },
+            "password_reset_success": {
+                "title": "Passwort zurücksetzen",
+                "description": "Passwort zurücksetzen",
+                "headline": "Bitte erstellen Sie Ihr Passwort",
+                "text": "Klicken Sie auf den Link in der E-Mail, die Sie erhalten haben. Es kann einige Minuten dauern, bis Sie die E-Mail erhalten haben."
+            },
+            "password_token_expired": {
+                "title": "Zeit abgelaufen",
+                "description": "Die Zeit für die Erstellung des Passworts ist abgelaufen.",
+                "headline": "Zeit abgelaufen",
+                "text": "Die Zeit für die Erstellung des Passworts ist abgelaufen. Bitte nutzen Sie die Funktion 'Passwort vergessen'."
             },
             "email": {
                 "confirm": {

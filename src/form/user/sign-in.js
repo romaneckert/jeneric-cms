@@ -2,7 +2,7 @@ const Form = require('@jeneric/core/src/form')
 
 class SignInForm extends Form {
 
-    constructor(user) {
+    constructor() {
 
         super({
             email: {
@@ -13,7 +13,7 @@ class SignInForm extends Form {
                 type: String,
                 required: [true, 'jeneric.error.password.required']
             }
-        }, user);
+        });
     }
 
 }

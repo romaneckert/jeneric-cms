@@ -1,11 +1,9 @@
+const EmailForm = require('../../../form/user/email');
 const crypto = require('crypto');
-const EmailForm = require('../../form/user/email');
 
-class Install {
+module.exports = class PasswordReset {
 
     async handle(req, res, next) {
-
-        if (0 < await this.model.user.countDocuments()) res.redirect('/jeneric/user/sign-in');
 
         let user = new this.model.user();
         let form = new EmailForm(user);
@@ -13,23 +11,15 @@ class Install {
         form.handle(req.body);
 
         if (!form.valid) {
-            return res.render('jeneric/install/user-creation', {
+            return res.render('jeneric/user/password-reset', {
                 form: form
             });
         }
 
-        // check if user with email already exists
-        try {
-            if (null !== await this.model.user.findOne({ email: user.email })) {
-                return res.redirect('/jeneric/install');
-            }
-        } catch (err) {
+        user = await this.model.user.findOne({ email: user.email });
 
-            this.logger.error('user with email already exists', err);
-
-            return res.render('jeneric/install/user-creation', {
-                form: form
-            });
+        if (null === user) {
+            return res.render('jeneric/user/password-reset-success');
         }
 
         // generate password token
@@ -47,7 +37,7 @@ class Install {
             form.addError('password', 'jeneric.error.data_process');
             this.logger.error('can not generate password token for user', err);
 
-            return res.render('jeneric/install/user-creation', {
+            return res.render('jeneric/user/password-reset', {
                 form: form
             });
         }
@@ -59,7 +49,7 @@ class Install {
             form.addError('user', 'jeneric.error.data_process');
             this.logger.error('can not save user', err);
 
-            return res.render('jeneric/install/user-creation', {
+            return res.render('jeneric/user/password-reset', {
                 form: form
             });
         }
@@ -81,28 +71,17 @@ class Install {
                 html: html
             });
 
-            return res.render('jeneric/install/user-creation-success');
+            return res.render('jeneric/user/password-reset-success');
 
         } catch (err) {
             form.addError('user', 'jeneric.error.send_email');
             this.logger.error('can not send email to user', err);
         }
 
-        // remove user instance, because email send failed
-        try {
-            await user.remove();
-        } catch (err) {
-            form.addError('user', 'jeneric.error.data_process');
-            this.logger.error('can not delete user', err);
-        }
-
-        return res.render('jeneric/install/user-creation', {
+        return res.render('jeneric/user/password-reset', {
             form: form
         });
 
     }
 
 }
-
-module.exports = Install;
-

@@ -13,14 +13,16 @@ class User extends Model {
             password: {
                 type: String
             },
+            passwordCreationDate: {
+                type: Date
+            },
             passwordToken: {
                 type: String
             },
-            passwordCreationDate: {
+            passwordTokenCreationDate: {
                 type: Date
             }
         };
-
     }
 
 }

@@ -14,6 +14,9 @@
                 "max_length_64": "The maximum length of the password is 100 characters.",
                 "illegal_characters": "The password contains illegal characters.",
                 "password_repeat": "The passwords do not match."
+            },
+            "user": {
+                "incorrect_username_or_password": "Please check your entries. Your email address or password is incorrect."
             }
         },
         "form": {
@@ -54,6 +57,24 @@
                 "description": "Please enter your password.",
                 "headline": "Create password",
                 "text": "Please enter your password."
+            },
+            "password_reset": {
+                "title": "Password reset",
+                "description": "Password reset",
+                "headline": "Password reset",
+                "text": "Please enter your email address. We will send you a link to create a password."
+            },
+            "password_reset_success": {
+                "title": "Password reset",
+                "description": "Password reset",
+                "headline": "Please create your password",
+                "text": "Click on the link in the email you received. It may take a few minutes for you to receive the email."
+            },
+            "password_token_expired": {
+                "title": "Time expired",
+                "description": "The time for creating the password has expired.",
+                "headline": "Time expired",
+                "text": "The time for creating the password has expired. Please use the forgotten password function."
             },
             "email": {
                 "password": {
