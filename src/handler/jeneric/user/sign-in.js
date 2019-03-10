@@ -47,7 +47,7 @@ class SignIn {
             expires: new Date(Date.now() + this.container.config.core.userTokenExpires * 1000),
             httpOnly: true,
             sameSite: 'Strict',
-            secure: true,
+            secure: true
         });
 
         return res.redirect('/jeneric');

@@ -9,16 +9,11 @@ module.exports = {
     },
     middleware: {
         roles: {
-            path: '/jeneric/user/sign-in'
+            routes: require('./routes'),
+            redirectPath: '/jeneric/user/sign-in'
         }
     },
     module: {
-        asset: {
-            additionalFiles: {
-                jenericRobotoWoff: 'font/roboto-v18-cyrillic-ext_latin_cyrillic_vietnamese_greek-ext_greek_latin-ext-regular.woff',
-                jenericRobotoWoff2: 'font/roboto-v18-cyrillic-ext_latin_cyrillic_vietnamese_greek-ext_greek_latin-ext-regular.woff2'
-            }
-        },
         i18n: {
             locales: ['en', 'de_DE', 'de'],
             defaultLocale: ['en'],
@@ -30,9 +25,6 @@ module.exports = {
             url: 'mongodb://localhost/jeneric-cms'
         },
         server: {
-            middleware: {
-                //2000: 'auth'
-            },
             routes: require('./routes')
         }
     }

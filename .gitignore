@@ -2,4 +2,6 @@
 node_modules/
 /var
 /public/css
+/config/cert.pem
+/config/key.pem
 !.gitkeep
