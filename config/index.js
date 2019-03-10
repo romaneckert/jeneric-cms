@@ -1,9 +1,16 @@
 module.exports = {
     core: {
         cluster: true,
+        secret: 'asdjkjkasd734q5fkasklasdf',
+        userTokenExpires: 86400
     },
     env: {
         baseUrl: 'http://localhost:3000'
+    },
+    middleware: {
+        roles: {
+            path: '/jeneric/user/sign-in'
+        }
     },
     module: {
         asset: {
@@ -24,7 +31,7 @@ module.exports = {
         },
         server: {
             middleware: {
-                2000: 'auth'
+                //2000: 'auth'
             },
             routes: require('./routes')
         }

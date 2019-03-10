@@ -52,6 +52,9 @@ class Install {
             });
         }
 
+        // add user role
+        user.roles = ['admin', 'user'];
+
         // save user
         try {
             await user.save();

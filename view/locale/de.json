@@ -25,7 +25,8 @@
                 "password": "Passwort",
                 "password_repeat": "Passwort wiederholen"
             },
-            "submit": "Absenden"
+            "submit": "Absenden",
+            "sign_in": "Anmeldung"
         },
         "panel": {
             "footer": {
@@ -83,6 +84,12 @@
                     "text": "Klicken Sie auf den folgenden Link und geben Sie Ihr Passwort ein.",
                     "button": "Passwort erstellen"
                 }
+            },
+            "sign_in": {
+                "title": "Anmeldung",
+                "description": "Bitte geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein",
+                "headline": "Anmeldung",
+                "text": "Bitte geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein."
             }
         }
     }

@@ -21,6 +21,9 @@ class User extends Model {
             },
             passwordTokenCreationDate: {
                 type: Date
+            },
+            roles: {
+                type: Array
             }
         };
     }

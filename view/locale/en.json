@@ -25,7 +25,8 @@
                 "password": "Password",
                 "password_repeat": "Password Repeat"
             },
-            "submit": "Submit"
+            "submit": "Submit",
+            "sign_in": "Sign In"
         },
         "panel": {
             "footer": {
@@ -83,6 +84,12 @@
                     "text": "Click on the following link and enter your password.",
                     "button": "Create password"
                 }
+            },
+            "sign_in": {
+                "title": "Sign in",
+                "description": "Please enter your email address and password",
+                "headline": "Sign in",
+                "text": "Please enter your email address and password."
             }
         }
     }

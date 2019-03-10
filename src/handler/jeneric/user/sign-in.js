@@ -1,7 +1,7 @@
-let bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const SignInForm = require('../../../form/user/sign-in');
 
-class Login {
+class SignIn {
 
     async handle(req, res, next) {
 
@@ -28,30 +28,33 @@ class Login {
             });
         }
 
-        /*
-        this.model.user.findOne({ email: req.body.email }, (err, user) => {
-            if (err) return next(err);
-
-            if (null === user) {
-                return res.render('jeneric/user/sign-in', {
-                    errors: ['can not login, wrong credentials']
-                });
+        let token = jwt.sign(
+            {
+                data: {
+                    user: {
+                        email: user.email,
+                        role: user.role
+                    }
+                }
+            },
+            this.container.config.core.secret,
+            {
+                expiresIn: this.container.config.core.userTokenExpires
             }
+        );
 
-            bcrypt.compare(req.body.password, user.password, (err, result) => {
-                if (err) return next(err);
+        res.cookie('_t', token, {
+            expires: new Date(Date.now() + this.container.config.core.userTokenExpires * 1000),
+            httpOnly: true,
+            sameSite: 'Strict',
+            secure: true,
+        });
 
-                core.service.accessToken.addCookie(user, res);
-
-                return res.redirect('/user/overview/');
-
-            });
-
-        });*/
+        return res.redirect('/jeneric');
 
     }
 
 }
 
-module.exports = Login;
+module.exports = SignIn;
 

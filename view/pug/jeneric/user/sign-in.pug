@@ -1,10 +1,15 @@
 extends ../layout-signed-out.pug
 
 block append head
-    title Login
-    meta(name="description" content="Jeneric Login")
+    title=trans('jeneric.user.sign_in.title')
+    meta(name="description" content=trans('jeneric.user.sign_in.description'))
 
 block content
+
+    h1.h2=trans('jeneric.user.sign_in.headline')
+
+    .jeneric-text
+        p=trans('jeneric.user.sign_in.text')
 
     +error(errors=form.errors)
 
@@ -17,4 +22,4 @@ block content
             label(for='password')=trans('jeneric.form.label.password')
             +textfield.form-control(id='password' type='password' name='password' form=form required='required')
 
-        button.btn.btn-primary(type='submit') Submit
+        button.btn.btn-primary(type='submit')=trans('jeneric.form.sign_in')

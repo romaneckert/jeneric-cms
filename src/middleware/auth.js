@@ -3,20 +3,21 @@ const jwt = require('jsonwebtoken');
 class Auth {
 
     handle(req, res, next) {
+
         try {
 
-            if ('string' === typeof req.cookies.access_token) {
+            if ('string' !== typeof req.cookies._t) next();
 
-                jwt.verify(req.cookies.access_token, config.secret, (err, decoded) => {
-                    if (!err && 'object' === typeof decoded.data.user && null !== decoded.data.user) {
-                        req.user = decoded.data.user;
-                    }
-                });
+            let decoded = jwt.verify(req.cookies._t, this.container.config.core.secret);
 
+            if ('object' === typeof decoded.data.user && null !== decoded.data.user) {
+                req.user = decoded.data.user;
             }
 
+
+
         } catch (err) {
-            console.error(err);
+            this.logger.error('error in auth module', err);
         }
 
         next();

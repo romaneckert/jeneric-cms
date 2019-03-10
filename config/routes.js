@@ -17,6 +17,7 @@ module.exports = {
         index: {
             path: '/jeneric',
             methods: ['get', 'post'],
+            roles: ['user']
         },
         install: {
             path: '/jeneric/install',

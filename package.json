@@ -3,7 +3,9 @@
     "version": "2.0.3",
     "description": "jeneric cms",
     "main": "index.js",
-    "scripts": {},
+    "scripts": {
+        "production": "NODE_ENV=production node ."
+    },
     "author": "Roman Eckert",
     "license": "MIT",
     "repository": "https://github.com/romaneckert/jeneric-cms",
@@ -17,6 +19,9 @@
             "public/*"
         ],
         "delay": "100",
+        "ignoreRoot": [
+            ".git"
+        ],
         "ext": "js,json,pug,css,js"
     },
     "devDependencies": {
