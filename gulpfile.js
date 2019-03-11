@@ -26,7 +26,7 @@ function css() {
                 preserve: false
             })
         )
-        .pipe(gulp.dest('./public/jeneric/css'));
+        .pipe(gulp.dest('./public/assets/jeneric/css'));
 }
 
 function watch() {
