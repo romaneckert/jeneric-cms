@@ -78,7 +78,7 @@
                 "text": "Die Zeit für die Erstellung des Passworts ist abgelaufen. Bitte nutzen Sie die Funktion 'Passwort vergessen'."
             },
             "email": {
-                "confirm": {
+                "password": {
                     "subject": "Jeneric CMS | Benutzer Konto - Passwort erstellen",
                     "headline": "Passwort erstellen",
                     "text": "Klicken Sie auf den folgenden Link und geben Sie Ihr Passwort ein.",
@@ -89,7 +89,8 @@
                 "title": "Anmeldung",
                 "description": "Bitte geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein",
                 "headline": "Anmeldung",
-                "text": "Bitte geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein."
+                "text": "Bitte geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein.",
+                "text_bottom": "Wenn Sie ihr Passwort vergessen haben, klicken Sie auf <a href='/jeneric/user/password-reset' title='Passwort zurücksetzen'>Passwort zurücksetzen</a>."
             }
         }
     }

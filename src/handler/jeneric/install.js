@@ -80,7 +80,7 @@ class Install {
 
             await this.module.mail.send({
                 to: user.email,
-                subject: res.trans('jeneric.user.email.confirm.subject'),
+                subject: res.trans('jeneric.user.email.password.subject'),
                 html: html
             });
 

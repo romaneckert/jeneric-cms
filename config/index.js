@@ -5,7 +5,7 @@ module.exports = {
         userTokenExpires: 86400
     },
     env: {
-        baseUrl: 'http://localhost:3000'
+        baseUrl: 'https://localhost:3000'
     },
     middleware: {
         roles: {

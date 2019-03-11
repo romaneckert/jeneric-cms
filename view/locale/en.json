@@ -89,7 +89,8 @@
                 "title": "Sign in",
                 "description": "Please enter your email address and password",
                 "headline": "Sign in",
-                "text": "Please enter your email address and password."
+                "text": "Please enter your email address and password.",
+                "text_bottom": "If you have forgotten your password, click <a href='/jeneric/user/password-reset' title='Reset password'>Reset password</a>."
             }
         }
     }

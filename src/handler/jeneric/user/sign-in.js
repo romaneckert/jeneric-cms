@@ -5,8 +5,6 @@ class SignIn {
 
     async handle(req, res, next) {
 
-        if (0 === await this.model.user.countDocuments()) return res.redirect('/jeneric/install');
-
         let form = new SignInForm();
 
         form.handle(req.body);
@@ -33,7 +31,7 @@ class SignIn {
                 data: {
                     user: {
                         email: user.email,
-                        role: user.role
+                        roles: user.roles
                     }
                 }
             },
