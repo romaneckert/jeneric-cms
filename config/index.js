@@ -9,7 +9,6 @@ module.exports = {
     },
     middleware: {
         roles: {
-            routes: require('./routes'),
             redirectPath: '/jeneric/user/sign-in'
         }
     },
