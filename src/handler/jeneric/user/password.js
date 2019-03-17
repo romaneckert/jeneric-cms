@@ -59,7 +59,7 @@ class Password {
             });
         }
 
-        res.redirect('/jeneric/user/sign-in');
+        return res.redirect('/jeneric/user/sign-in');
     }
 
 }

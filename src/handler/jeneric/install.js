@@ -5,7 +5,7 @@ class Install {
 
     async handle(req, res, next) {
 
-        if (0 < await jeneric.model.user.countDocuments()) res.redirect('/jeneric/user/sign-in');
+        if (0 < await jeneric.model.user.countDocuments()) return res.redirect('/jeneric/user/sign-in');
 
         let user = new jeneric.model.user();
         let form = new EmailForm(user);
