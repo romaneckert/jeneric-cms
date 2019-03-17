@@ -20,6 +20,10 @@
         height: 30px;
         width: 100%;
         border-radius: 2px;
+
+        &.has-error {
+            border: 1px solid rgba($color-red, 1);
+        }
     }
 
     input:focus {
