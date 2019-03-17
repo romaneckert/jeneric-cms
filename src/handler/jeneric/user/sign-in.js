@@ -28,11 +28,9 @@ class SignIn {
 
         let token = jwt.sign(
             {
-                data: {
-                    user: {
-                        email: user.email,
-                        roles: user.roles
-                    }
+                user: {
+                    email: user.email,
+                    roles: user.roles
                 }
             },
             jeneric.config.secret,

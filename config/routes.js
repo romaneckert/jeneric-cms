@@ -12,6 +12,10 @@ module.exports = {
             signIn: {
                 path: '/jeneric/user/sign-in',
                 methods: ['get', 'post'],
+            },
+            signOut: {
+                path: '/jeneric/user/sign-out',
+                methods: ['get'],
             }
         },
         index: {
