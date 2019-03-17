@@ -80,7 +80,7 @@ class Install {
 
             await jeneric.module.mail.send({
                 to: user.email,
-                subject: res.trans('jeneric.user.email.password.subject'),
+                subject: jeneric.module.i18n.translate(res.locale, 'jeneric.user.email.password.subject'),
                 html: html
             });
 
