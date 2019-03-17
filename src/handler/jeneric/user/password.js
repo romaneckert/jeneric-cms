@@ -5,7 +5,7 @@ class Password {
 
     async handle(req, res, next) {
 
-        let user = await this.model.user.findOne({ passwordToken: req.params.passwordToken });
+        let user = await jeneric.model.user.findOne({ passwordToken: req.params.passwordToken });
 
         // return 404 if user not found
         if (null === user) return next();
@@ -31,7 +31,7 @@ class Password {
             user.password = await bcrypt.hash(user.password, 10);
         } catch (err) {
             form.addError('password', 'jeneric.error.data_process');
-            this.logger.error('can not generate password for user', err);
+            jeneric.logger.error('can not generate password for user', err);
 
             return res.render('jeneric/user/password', {
                 form: form
@@ -52,7 +52,7 @@ class Password {
             await user.save();
         } catch (err) {
             form.addError('user', 'jeneric.error.data_process');
-            this.logger.error('can not save user', err);
+            jeneric.logger.error('can not save user', err);
 
             return res.render('jeneric/user/password', {
                 form: form

@@ -15,7 +15,7 @@ class SignIn {
             });
         }
 
-        let user = await this.model.user.findOne({ email: form.data.email });
+        let user = await jeneric.model.user.findOne({ email: form.data.email });
 
         if (null === user) {
 
@@ -35,14 +35,14 @@ class SignIn {
                     }
                 }
             },
-            this.container.config.core.secret,
+            jeneric.config.secret,
             {
-                expiresIn: this.container.config.core.userTokenExpires
+                expiresIn: jeneric.config.userTokenExpires
             }
         );
 
         res.cookie('_t', token, {
-            expires: new Date(Date.now() + this.container.config.core.userTokenExpires * 1000),
+            expires: new Date(Date.now() + jeneric.config.userTokenExpires * 1000),
             httpOnly: true,
             sameSite: 'Strict',
             secure: true

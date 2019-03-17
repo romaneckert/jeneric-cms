@@ -5,7 +5,7 @@ module.exports = class PasswordReset {
 
     async handle(req, res, next) {
 
-        let user = new this.model.user();
+        let user = new jeneric.model.user();
         let form = new EmailForm(user);
 
         form.handle(req.body);
@@ -16,7 +16,7 @@ module.exports = class PasswordReset {
             });
         }
 
-        user = await this.model.user.findOne({ email: user.email });
+        user = await jeneric.model.user.findOne({ email: user.email });
 
         if (null === user) {
             return res.render('jeneric/user/password-reset-success');
@@ -27,7 +27,7 @@ module.exports = class PasswordReset {
 
             let passwordToken = crypto.randomBytes(32).toString('hex');
 
-            if (0 < await this.model.user.countDocuments({ passwordToken: passwordToken })) throw new Error();
+            if (0 < await jeneric.model.user.countDocuments({ passwordToken: passwordToken })) throw new Error();
 
             user.passwordToken = passwordToken;
             user.passwordTokenCreationDate = new Date();
@@ -35,7 +35,7 @@ module.exports = class PasswordReset {
         } catch (err) {
 
             form.addError('password', 'jeneric.error.data_process');
-            this.logger.error('can not generate password token for user', err);
+            jeneric.logger.error('can not generate password token for user', err);
 
             return res.render('jeneric/user/password-reset', {
                 form: form
@@ -47,7 +47,7 @@ module.exports = class PasswordReset {
             await user.save();
         } catch (err) {
             form.addError('user', 'jeneric.error.data_process');
-            this.logger.error('can not save user', err);
+            jeneric.logger.error('can not save user', err);
 
             return res.render('jeneric/user/password-reset', {
                 form: form
@@ -57,7 +57,7 @@ module.exports = class PasswordReset {
         // send email with confirm token
         try {
 
-            let html = await this.module.mail.render(
+            let html = await jeneric.module.mail.render(
                 'jeneric/user/email/set-password',
                 {
                     user: user
@@ -65,7 +65,7 @@ module.exports = class PasswordReset {
                 res
             );
 
-            await this.module.mail.send({
+            await jeneric.module.mail.send({
                 to: user.email,
                 subject: res.trans('jeneric.user.email.confirm.subject'),
                 html: html
@@ -75,7 +75,7 @@ module.exports = class PasswordReset {
 
         } catch (err) {
             form.addError('user', 'jeneric.error.send_email');
-            this.logger.error('can not send email to user', err);
+            jeneric.logger.error('can not send email to user', err);
         }
 
         return res.render('jeneric/user/password-reset', {
