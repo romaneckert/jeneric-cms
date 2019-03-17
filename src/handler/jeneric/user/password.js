@@ -28,7 +28,7 @@ class Password {
 
         // generate password
         try {
-            user.password = await bcrypt.hash(user.password, 10);
+            user.password = bcrypt.hashSync(user.password, 10);
         } catch (err) {
             form.addError('password', 'jeneric.error.data_process');
             jeneric.logger.error('can not generate password for user', err);

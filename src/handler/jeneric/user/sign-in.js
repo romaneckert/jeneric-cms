@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const SignInForm = require('../../../form/user/sign-in');
+const bcrypt = require('bcrypt');
 
 class SignIn {
 
@@ -19,6 +20,15 @@ class SignIn {
 
         if (null === user) {
 
+            form.addError('user', 'jeneric.error.user.incorrect_username_or_password');
+
+            return res.render('jeneric/user/sign-in', {
+                form: form
+            });
+        }
+
+        if (!bcrypt.compareSync(form.data.password, user.password)) {
+            
             form.addError('user', 'jeneric.error.user.incorrect_username_or_password');
 
             return res.render('jeneric/user/sign-in', {
