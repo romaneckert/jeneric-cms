@@ -1,11 +1,9 @@
-const Model = require('@jeneric/core/src/model');
+const mongoose = require('mongoose');
 
-class User extends Model {
+class User {
     constructor() {
 
-        super();
-
-        this._schema = {
+        let schema = new mongoose.Schema({
             email: {
                 type: String,
                 validate: require('../validator/email')
@@ -25,7 +23,9 @@ class User extends Model {
             roles: {
                 type: Array
             }
-        };
+        }, { versionKey: false });
+
+        return new mongoose.model(this.constructor.name, schema);
     }
 
 }
