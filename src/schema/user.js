@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 class User {
     constructor() {
 
-        let schema = new mongoose.Schema({
+        return new mongoose.Schema({
             email: {
                 type: String,
                 validate: require('../validator/email')
@@ -25,7 +25,6 @@ class User {
             }
         }, { versionKey: false });
 
-        return new mongoose.model(this.constructor.name, schema);
     }
 
 }

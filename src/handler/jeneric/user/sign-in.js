@@ -16,7 +16,20 @@ class SignIn {
             });
         }
 
-        let user = await jeneric.model.user.findOne({ email: form.data.email });
+        let user = null;
+
+        try {
+            user = await jeneric.model.user.findOne({ email: form.data.email });
+        } catch (err) {
+
+            jeneric.logger.error('can not find user', err);
+
+            form.addError('user', 'jeneric.error.data_process');
+
+            return res.render('jeneric/user/sign-in', {
+                form: form
+            });
+        }
 
         if (null === user) {
 
@@ -28,7 +41,7 @@ class SignIn {
         }
 
         if (!bcrypt.compareSync(form.data.password, user.password)) {
-            
+
             form.addError('user', 'jeneric.error.user.incorrect_username_or_password');
 
             return res.render('jeneric/user/sign-in', {
