@@ -96,7 +96,7 @@
                 "description": "Bitte geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein",
                 "headline": "Anmeldung",
                 "text": "Bitte geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein.",
-                "text_bottom": "Wenn Sie ihr Passwort vergessen haben, klicken Sie auf <a href='/jeneric/user/password-reset' title='Passwort zurücksetzen'>Passwort zurücksetzen</a>."
+                "text_bottom": "Wenn Sie ihr Passwort vergessen haben, klicken Sie auf <a href='{{ url }}' title='Passwort zurücksetzen'>Passwort zurücksetzen</a>."
             }
         }
     }

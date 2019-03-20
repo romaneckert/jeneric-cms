@@ -13,7 +13,7 @@ html(lang="en")
     body
         .jeneric-page.jeneric-page-panel
             .jeneric-panel
-                a.jeneric-logo.jeneric-brand-name(href='/jeneric')
+                a.jeneric-logo.jeneric-brand-name(href=view.jeneric.url('jeneric_index'))
                     span J
                     span E
                     span N
@@ -38,5 +38,5 @@ html(lang="en")
                         |
                         | -
                         |
-                        =view.jeneric.translate('jeneric.panel.footer.text')
+                        =view.jeneric.translate('jeneric.panel.footer.text', view.jeneric.url('jeneric_index'))
 

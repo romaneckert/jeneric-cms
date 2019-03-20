@@ -1,32 +1,27 @@
 module.exports = {
-    jeneric: {
-        user: {
-            password: {
-                path: '/jeneric/user/password/:passwordToken',
-                methods: ['get', 'post'],
-            },
-            passwordReset: {
-                path: '/jeneric/user/password-reset',
-                methods: ['get', 'post'],
-            },
-            signIn: {
-                path: '/jeneric/user/sign-in',
-                methods: ['get', 'post'],
-            },
-            signOut: {
-                path: '/jeneric/user/sign-out',
-                methods: ['get'],
-            }
-        },
-        index: {
-            path: '/jeneric',
-            methods: ['get', 'post'],
-            roles: ['user']
-        },
-        install: {
-            path: '/jeneric/install',
-            methods: ['get', 'post'],
-        }
-
+    jeneric_user_password: {
+        path: '/jeneric/user/password/:passwordToken',
+        methods: ['get', 'post'],
+    },
+    jeneric_user_password_reset: {
+        path: '/jeneric/user/password-reset',
+        methods: ['get', 'post'],
+    },
+    jeneric_user_sign_in: {
+        path: '/jeneric/user/sign-in',
+        methods: ['get', 'post'],
+    },
+    jeneric_user_sign_out: {
+        path: '/jeneric/user/sign-out',
+        methods: ['get'],
+    },
+    jeneric_index: {
+        path: '/jeneric',
+        methods: ['get', 'post'],
+        roles: ['user']
+    },
+    jeneric_install: {
+        path: '/jeneric/install',
+        methods: ['get', 'post'],
     }
 };

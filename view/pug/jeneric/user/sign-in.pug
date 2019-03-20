@@ -25,4 +25,4 @@ block content
         button.btn.btn-primary(type='submit')=view.jeneric.translate('jeneric.form.sign_in')
 
     .jeneric-text
-        p!=view.jeneric.translate('jeneric.user.sign_in.text_bottom')
+        p!=view.jeneric.translate('jeneric.user.sign_in.text_bottom', {url: view.jeneric.url('jeneric_user_password_reset')})

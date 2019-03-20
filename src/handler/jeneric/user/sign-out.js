@@ -1,4 +1,4 @@
-class SignOut {
+module.exports = class SignOut {
     async handle(req, res) {
 
         res.clearCookie('_t');
@@ -7,6 +7,4 @@ class SignOut {
 
     }
 }
-
-module.exports = SignOut;
 

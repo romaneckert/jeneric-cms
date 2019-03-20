@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const SignInForm = require('../../../form/user/sign-in');
 const bcrypt = require('bcrypt');
 
-class SignIn {
+module.exports = class SignIn {
 
     async handle(req, res, next) {
 
@@ -23,7 +23,6 @@ class SignIn {
         } catch (err) {
 
             jeneric.logger.error('can not find user', err);
-
             form.addError('user', 'jeneric.error.data_process');
 
             return res.render('jeneric/user/sign-in', {
@@ -74,6 +73,4 @@ class SignIn {
     }
 
 }
-
-module.exports = SignIn;
 

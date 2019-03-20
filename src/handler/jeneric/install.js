@@ -1,7 +1,7 @@
 const crypto = require('crypto');
 const EmailForm = require('../../form/user/email');
 
-class Install {
+module.exports = class Install {
 
     async handle(req, res, next) {
 
@@ -106,6 +106,4 @@ class Install {
     }
 
 }
-
-module.exports = Install;
 

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-class User {
+module.exports = class User {
     constructor() {
 
         return new mongoose.Schema({
@@ -26,7 +26,4 @@ class User {
         }, { versionKey: false });
 
     }
-
 }
-
-module.exports = User;

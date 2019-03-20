@@ -1,7 +1,7 @@
 const PasswordForm = require('../../../form/user/password');
 const bcrypt = require('bcrypt');
 
-class Password {
+module.exports = class Password {
 
     async handle(req, res, next) {
 
@@ -62,5 +62,3 @@ class Password {
     }
 
 }
-
-module.exports = Password;
