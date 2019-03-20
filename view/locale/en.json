@@ -59,6 +59,12 @@
                 "headline": "Create password",
                 "text": "Please enter your password."
             },
+            "password_success": {
+                "title": "Password reset successfully",
+                "description": "Password reset successfully",
+                "headline": "Password reset successfully",
+                "text": "You have successfully reset your password. The following link will take you to the login mask:"
+            },
             "password_reset": {
                 "title": "Password reset",
                 "description": "Password reset",
@@ -72,10 +78,10 @@
                 "text": "Click on the link in the email you received. It may take a few minutes for you to receive the email."
             },
             "password_token_expired": {
-                "title": "Time expired",
-                "description": "The time for creating the password has expired.",
-                "headline": "Time expired",
-                "text": "The time for creating the password has expired. Please use the forgotten password function."
+                "title": "Password reset",
+                "description": "This link has already been used or has expired.",
+                "headline": "This link has already been used or has expired",
+                "text": "Please use the reset password function to create a new password."
             },
             "email": {
                 "password": {

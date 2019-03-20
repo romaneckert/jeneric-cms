@@ -7,11 +7,8 @@ class Password {
 
         let user = await jeneric.model.user.findOne({ passwordToken: req.params.passwordToken });
 
-        // return 404 if user not found
-        if (null === user) return next();
-
         // return password token expired after 24h
-        if (new Date() - user.passwordTokenCreationDate > 24 * 60 * 60 * 1000) {
+        if (null === user || new Date() - user.passwordTokenCreationDate > 24 * 60 * 60 * 1000) {
             return res.render('jeneric/user/password-token-expired');
         }
 
@@ -59,7 +56,9 @@ class Password {
             });
         }
 
-        return res.redirect('/jeneric/user/sign-in');
+        return res.render('jeneric/user/password-success', {
+            form: form
+        });
     }
 
 }

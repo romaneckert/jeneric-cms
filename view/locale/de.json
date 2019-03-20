@@ -59,6 +59,12 @@
                 "headline": "Passwort erstellen",
                 "text": "Bitte geben Sie Ihr Passwort ein."
             },
+            "password_success": {
+                "title": "Passwort erfolgreich zurückgesetzt",
+                "description": "Passwort erfolgreich zurückgesetzt",
+                "headline": "Passwort erfolgreich zurückgesetzt",
+                "text": "Sie haben Ihr Passwort erfolgreich zurück gesetzt. Über folgenden Link gelangen Sie zur Login Maske:"
+            },
             "password_reset": {
                 "title": "Passwort zurücksetzen",
                 "description": "Passwort zurücksetzen",
@@ -72,10 +78,10 @@
                 "text": "Klicken Sie auf den Link in der E-Mail, die Sie erhalten haben. Es kann einige Minuten dauern, bis Sie die E-Mail erhalten haben."
             },
             "password_token_expired": {
-                "title": "Zeit abgelaufen",
-                "description": "Die Zeit für die Erstellung des Passworts ist abgelaufen.",
-                "headline": "Zeit abgelaufen",
-                "text": "Die Zeit für die Erstellung des Passworts ist abgelaufen. Bitte nutzen Sie die Funktion 'Passwort vergessen'."
+                "title": "Passwort zurücksetzen",
+                "description": "Dieser Link wurde bereits verwendet oder ist abgelaufen.",
+                "headline": "Dieser Link wurde bereits verwendet oder ist abgelaufen",
+                "text": "Bitte verwenden Sie die Funktion Passwort zurücksetzen, um ein neues Passwort zu erstellen."
             },
             "email": {
                 "password": {
