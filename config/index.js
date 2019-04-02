@@ -2,7 +2,6 @@ module.exports = {
 
     cluster: true,
     secret: 'asdjkjkasd734q5fkasklasdf',
-    userTokenExpires: 86400,
     baseUrl: 'https://localhost:3000',
 
     middleware: {

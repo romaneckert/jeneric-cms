@@ -1,4 +1,3 @@
-const jwt = require('jsonwebtoken');
 const SignInForm = require('../../../form/user/sign-in');
 const bcrypt = require('bcrypt');
 
@@ -48,25 +47,20 @@ module.exports = class SignIn {
             });
         }
 
-        let token = jwt.sign(
-            {
-                user: {
-                    email: user.email,
-                    roles: user.roles
-                }
-            },
-            jeneric.config.secret,
-            {
-                expiresIn: jeneric.config.userTokenExpires
-            }
-        );
+        // generate token
+        let token = jeneric.module.auth.generateToken(user);
 
-        res.cookie('_t', token, {
-            expires: new Date(Date.now() + jeneric.config.userTokenExpires * 1000),
-            httpOnly: true,
-            sameSite: 'Strict',
-            secure: true
-        });
+        if (token === null) {
+            jeneric.logger.error('can not generate token', err);
+            form.addError('user', 'jeneric.error.data_process');
+
+            return res.render('jeneric/user/sign-in', {
+                form: form
+            });
+        }
+
+        // add token to response
+        jeneric.module.auth.addTokenToResponse(token, res);
 
         return res.redirect('/jeneric');
 
