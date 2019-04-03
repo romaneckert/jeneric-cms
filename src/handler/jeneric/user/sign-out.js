@@ -1,7 +1,7 @@
 module.exports = class SignOut {
     async handle(req, res) {
 
-        res.clearCookie('_t');
+        jeneric.module.auth.signOut(req, res);
 
         return res.redirect('/jeneric/user/sign-in');
 

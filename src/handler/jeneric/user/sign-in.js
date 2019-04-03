@@ -47,20 +47,15 @@ module.exports = class SignIn {
             });
         }
 
-        // generate token
-        let token = jeneric.module.auth.generateToken(user);
-
-        if (token === null) {
-            jeneric.logger.error('can not generate token', err);
+        // sign in user
+        if (!jeneric.module.auth.signIn(req, res, user)) {
+            jeneric.logger.error('can not sign in', err);
             form.addError('user', 'jeneric.error.data_process');
 
             return res.render('jeneric/user/sign-in', {
                 form: form
             });
         }
-
-        // add token to response
-        jeneric.module.auth.addTokenToResponse(token, res);
 
         return res.redirect('/jeneric');
 
