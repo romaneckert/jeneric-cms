@@ -1,6 +1,6 @@
 {
     "name": "@jeneric/cms",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "description": "jeneric cms",
     "main": "index.js",
     "scripts": {
@@ -10,9 +10,8 @@
     "license": "MIT",
     "repository": "https://github.com/romaneckert/jeneric-cms",
     "dependencies": {
-        "@jeneric/core": "2.0.3",
-        "bcrypt": "3.0.4",
-        "jsonwebtoken": "8.5.0"
+        "@jeneric/core": "2.0.4",
+        "bcrypt": "3.0.5"
     },
     "nodemonConfig": {
         "ignore": [
