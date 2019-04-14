@@ -4,6 +4,7 @@
     "description": "jeneric cms",
     "main": "index.js",
     "scripts": {
+        "install": "node_modules/@jeneric/core/bin/install.js @jeneric/core",
         "production": "NODE_ENV=production node ."
     },
     "author": "Roman Eckert",
