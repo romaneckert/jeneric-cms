@@ -10,7 +10,7 @@
     "license": "MIT",
     "repository": "https://github.com/romaneckert/jeneric-cms",
     "dependencies": {
-        "@jeneric/core": "2.0.4",
+        "@jeneric/core": "2.0.5",
         "bcrypt": "3.0.5"
     },
     "nodemonConfig": {
