@@ -1,2 +1,3 @@
 #!/usr/bin/env node
-require('@jeneric/core').boot(__dirname);
+const app = require('@jeneric/app');
+app.boot();
