@@ -5,6 +5,8 @@
     "main": "index.js",
     "scripts": {
         "install": "node_modules/@jeneric/core/bin/install.js @jeneric/core",
+        "start": "node_modules/@jeneric/core/bin/install.js @jeneric/core && node .",
+        "start-dev": "node_modules/@jeneric/core/bin/install.js @jeneric/core && nodemon",
         "production": "NODE_ENV=production node ."
     },
     "author": "Roman Eckert",
@@ -17,13 +19,15 @@
     },
     "nodemonConfig": {
         "ignore": [
-            "public/*"
+            "public/*",
+            "node_modules/@jeneric/app"
         ],
         "delay": "100",
         "ignoreRoot": [
             ".git"
         ],
-        "ext": "js,json,pug,css,js"
+        "ext": "js,json,pug,css,js",
+        "exec": "npm run install && node ."
     },
     "devDependencies": {
         "gulp": "4.0.0",

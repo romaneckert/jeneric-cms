@@ -2,6 +2,7 @@
 
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const execSync = require('child_process').execSync;
 
 sass.compiler = require('node-sass');
 
@@ -9,7 +10,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const stripCssComments = require('gulp-strip-css-comments');
 
 function css() {
-    return gulp.src('./view/scss/style.scss')
+    return gulp.src('./scss/style.scss')
         .pipe(
             sass({
                 outputStyle: 'compressed'
@@ -30,7 +31,7 @@ function css() {
 }
 
 function watch() {
-    gulp.watch('./view/scss/**/*.scss', css);
+    gulp.watch('./scss/**/*.scss', css);
 }
 
 exports.css = css;
