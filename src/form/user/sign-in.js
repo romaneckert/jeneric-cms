@@ -1,6 +1,6 @@
 const Form = require('@jeneric/core/src/form')
 
-module.exports = class SignInForm extends Form {
+class SignInForm extends Form {
 
     constructor() {
 
@@ -17,3 +17,5 @@ module.exports = class SignInForm extends Form {
     }
 
 }
+
+module.exports = SignInForm;

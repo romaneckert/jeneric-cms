@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-module.exports = class User {
+class User {
     constructor() {
 
-        return new mongoose.Schema({
+        const schema = new mongoose.Schema({
             email: {
                 type: String,
                 validate: require('../validator/email')
@@ -25,5 +25,9 @@ module.exports = class User {
             }
         }, { versionKey: false });
 
+        return mongoose.model(this.constructor.name, schema);
+
     }
 }
+
+module.exports = User;

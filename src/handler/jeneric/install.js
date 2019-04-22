@@ -1,13 +1,14 @@
 const crypto = require('crypto');
 const EmailForm = require('../../form/user/email');
+const app = require('@jeneric/app');
 
 module.exports = class Install {
 
     async handle(req, res, next) {
 
-        if (0 < await jeneric.model.user.countDocuments()) return res.redirect('/jeneric/user/sign-in');
+        if (0 < await app.model.user.countDocuments()) return res.redirect('/jeneric/user/sign-in');
 
-        let user = new jeneric.model.user();
+        let user = new app.model.user();
         let form = new EmailForm(user);
 
         form.handle(req.body);
@@ -25,7 +26,7 @@ module.exports = class Install {
             }
         } catch (err) {
 
-            jeneric.logger.error('user with email already exists', err);
+            app.logger.error('user with email already exists', err);
 
             return res.render('jeneric/install/user-creation', {
                 form: form
@@ -37,7 +38,7 @@ module.exports = class Install {
 
             let passwordToken = crypto.randomBytes(32).toString('hex');
 
-            if (0 < await jeneric.model.user.countDocuments({ passwordToken: passwordToken })) throw new Error();
+            if (0 < await app.model.user.countDocuments({ passwordToken: passwordToken })) throw new Error();
 
             user.passwordToken = passwordToken;
             user.passwordTokenCreationDate = new Date();
@@ -45,7 +46,7 @@ module.exports = class Install {
         } catch (err) {
 
             form.addError('password', 'jeneric.error.data_process');
-            jeneric.logger.error('can not generate password token for user', err);
+            app.logger.error('can not generate password token for user', err);
 
             return res.render('jeneric/install/user-creation', {
                 form: form
@@ -60,7 +61,7 @@ module.exports = class Install {
             await user.save();
         } catch (err) {
             form.addError('user', 'jeneric.error.data_process');
-            jeneric.logger.error('can not save user', err);
+            app.logger.error('can not save user', err);
 
             return res.render('jeneric/install/user-creation', {
                 form: form
@@ -78,9 +79,9 @@ module.exports = class Install {
                 res
             );
 
-            await jeneric.module.mail.send({
+            await app.module.mail.send({
                 to: user.email,
-                subject: jeneric.module.i18n.translate(res.locale, 'jeneric.user.email.password.subject'),
+                subject: app.module.i18n.translate(res.locale, 'jeneric.user.email.password.subject'),
                 html: html
             });
 
@@ -88,7 +89,7 @@ module.exports = class Install {
 
         } catch (err) {
             form.addError('user', 'jeneric.error.send_email');
-            jeneric.logger.error('can not send email to user', err);
+            app.logger.error('can not send email to user', err);
         }
 
         // remove user instance, because email send failed
@@ -96,7 +97,7 @@ module.exports = class Install {
             await user.remove();
         } catch (err) {
             form.addError('user', 'jeneric.error.data_process');
-            jeneric.logger.error('can not delete user', err);
+            app.logger.error('can not delete user', err);
         }
 
         return res.render('jeneric/install/user-creation', {

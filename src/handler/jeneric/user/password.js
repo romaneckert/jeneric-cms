@@ -1,11 +1,12 @@
 const PasswordForm = require('../../../form/user/password');
 const bcrypt = require('bcrypt');
+const app = require('@jeneric/app');
 
-module.exports = class Password {
+class Password {
 
     async handle(req, res, next) {
 
-        let user = await jeneric.model.user.findOne({ passwordToken: req.params.passwordToken });
+        let user = await app.model.user.findOne({ passwordToken: req.params.passwordToken });
 
         // return password token expired after 24h
         if (null === user || new Date() - user.passwordTokenCreationDate > 24 * 60 * 60 * 1000) {
@@ -28,7 +29,7 @@ module.exports = class Password {
             user.password = bcrypt.hashSync(user.password, 10);
         } catch (err) {
             form.addError('password', 'jeneric.error.data_process');
-            jeneric.logger.error('can not generate password for user', err);
+            app.logger.error('can not generate password for user', err);
 
             return res.render('jeneric/user/password', {
                 form: form
@@ -62,3 +63,5 @@ module.exports = class Password {
     }
 
 }
+
+module.exports = Password;
