@@ -1,5 +1,3 @@
-include ../../../node_modules/@jeneric/core/view/pug/core/mixins/mixins.pug
-
 doctype html
 html(lang="en")
     head
@@ -7,8 +5,8 @@ html(lang="en")
             meta(charset="utf-8")
             meta(http-equiv="x-ua-compatible" content="ie=edge")
             meta(name="viewport" content="width=device-width, initial-scale=1")
-            link(rel='stylesheet' href=view.jeneric.asset('jeneric/css/style.css'))
-            link(rel='stylesheet' href=view.jeneric.asset('vendor/fontawesome/css/all.min.css'))
+            link(rel='stylesheet' href=view.asset('jeneric/css/style.css'))
+            link(rel='stylesheet' href=view.asset('vendor/fontawesome/css/all.min.css'))
 
     body
         block content

@@ -1,5 +1,4 @@
 const SignInForm = require('../../../form/user/sign-in');
-const bcrypt = require('bcrypt');
 
 module.exports = class SignIn {
 
@@ -21,7 +20,7 @@ module.exports = class SignIn {
             user = await jeneric.model.user.findOne({ email: form.data.email });
         } catch (err) {
 
-            jeneric.logger.error('can not find user', err);
+            app.logger.error('can not find user', err);
             form.addError('user', 'jeneric.error.data_process');
 
             return res.render('jeneric/user/sign-in', {

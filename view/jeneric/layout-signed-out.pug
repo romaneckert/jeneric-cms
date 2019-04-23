@@ -1,5 +1,3 @@
-include ../../../node_modules/@jeneric/core/view/pug/core/mixins/mixins.pug
-
 doctype html
 html(lang="en")
     head
@@ -7,13 +5,13 @@ html(lang="en")
             meta(charset="utf-8")
             meta(http-equiv="x-ua-compatible" content="ie=edge")
             meta(name="viewport" content="width=device-width, initial-scale=1")
-            link(rel='stylesheet' href=view.jeneric.asset('jeneric/css/style.css'))
-            link(rel='stylesheet' href=view.jeneric.asset('vendor/fontawesome/css/all.min.css'))
+            link(rel='stylesheet' href=view.asset('jeneric/css/style.css'))
+            link(rel='stylesheet' href=view.asset('vendor/fontawesome/css/all.min.css'))
 
     body
         .jeneric-page.jeneric-page-panel
             .jeneric-panel
-                a.jeneric-logo.jeneric-brand-name(href=view.jeneric.url('jeneric_index'))
+                a.jeneric-logo.jeneric-brand-name(href=view.url('jeneric_index'))
                     span J
                     span E
                     span N
@@ -38,5 +36,5 @@ html(lang="en")
                         |
                         | -
                         |
-                        =view.jeneric.translate('jeneric.panel.footer.text', view.jeneric.url('jeneric_index'))
+                        =view.translate('jeneric.panel.footer.text', view.url('jeneric_index'))
 

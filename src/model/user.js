@@ -8,7 +8,7 @@ class User {
                 type: String,
                 validate: require('../validator/email')
             },
-            password: {
+            passwordHash: {
                 type: String
             },
             passwordCreationDate: {

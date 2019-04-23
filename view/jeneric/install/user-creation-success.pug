@@ -1,10 +1,8 @@
-- const view = require('@jeneric/app').view;
-
 extends ../layout-signed-out.pug
 
 block append head
     title=view.translate('jeneric.install.user_creation_success.title')
-    meta(name="description" content=view.jeneric.translate('jeneric.install.user_creation_success.description'))
+    meta(name="description" content=view.translate('jeneric.install.user_creation_success.description'))
 
 block content
 

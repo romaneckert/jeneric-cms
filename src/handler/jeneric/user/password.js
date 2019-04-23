@@ -1,5 +1,4 @@
 const PasswordForm = require('../../../form/user/password');
-const bcrypt = require('bcrypt');
 const app = require('@jeneric/app');
 
 class Password {
@@ -26,7 +25,8 @@ class Password {
 
         // generate password
         try {
-            user.password = bcrypt.hashSync(user.password, 10);
+
+            user.passwordHash = app.module.auth.hashSync(user.password);
         } catch (err) {
             form.addError('password', 'jeneric.error.data_process');
             app.logger.error('can not generate password for user', err);
@@ -50,7 +50,7 @@ class Password {
             await user.save();
         } catch (err) {
             form.addError('user', 'jeneric.error.data_process');
-            jeneric.logger.error('can not save user', err);
+            app.logger.error('can not save user', err);
 
             return res.render('jeneric/user/password', {
                 form: form

@@ -1,28 +1,28 @@
 extends ../layout-signed-out.pug
 
 block append head
-    title=view.jeneric.translate('jeneric.user.sign_in.title')
-    meta(name="description" content=view.jeneric.translate('jeneric.user.sign_in.description'))
+    title=view.translate('jeneric.user.sign_in.title')
+    meta(name="description" content=view.translate('jeneric.user.sign_in.description'))
 
 block content
 
-    h1.h2=view.jeneric.translate('jeneric.user.sign_in.headline')
+    h1.h2=view.translate('jeneric.user.sign_in.headline')
 
     .jeneric-text
-        p=view.jeneric.translate('jeneric.user.sign_in.text')
+        p=view.translate('jeneric.user.sign_in.text')
 
     +error(errors=form.errors)
 
     +form(method='post' form=form)
         .form-group
-            label(for='email')=view.jeneric.translate('jeneric.form.label.email')
+            label(for='email')=view.translate('jeneric.form.label.email')
             +textfield.form-control(id='email' type='email' name='email' form=form required='required')
 
         .form-group
-            label(for='password')=view.jeneric.translate('jeneric.form.label.password')
+            label(for='password')=view.translate('jeneric.form.label.password')
             +textfield.form-control(id='password' type='password' name='password' form=form required='required')
 
-        button.btn.btn-primary(type='submit')=view.jeneric.translate('jeneric.form.sign_in')
+        button.btn.btn-primary(type='submit')=view.translate('jeneric.form.sign_in')
 
     .jeneric-text
-        p!=view.jeneric.translate('jeneric.user.sign_in.text_bottom', {url: view.jeneric.url('jeneric_user_password_reset')})
+        p!=view.translate('jeneric.user.sign_in.text_bottom', {url: view.url('jeneric_user_password_reset')})

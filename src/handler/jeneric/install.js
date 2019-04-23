@@ -2,11 +2,13 @@ const crypto = require('crypto');
 const EmailForm = require('../../form/user/email');
 const app = require('@jeneric/app');
 
-module.exports = class Install {
+class Install {
 
     async handle(req, res, next) {
 
-        if (0 < await app.model.user.countDocuments()) return res.redirect('/jeneric/user/sign-in');
+        if (0 < await app.model.user.countDocuments()) {
+            return res.redirect('/jeneric/user/sign-in');
+        }
 
         let user = new app.model.user();
         let form = new EmailForm(user);
@@ -19,9 +21,11 @@ module.exports = class Install {
             });
         }
 
+
+
         // check if user with email already exists
         try {
-            if (null !== await jeneric.model.user.findOne({ email: user.email })) {
+            if (null !== await app.model.user.findOne({ email: user.email })) {
                 return res.redirect('/jeneric/install');
             }
         } catch (err) {
@@ -107,4 +111,6 @@ module.exports = class Install {
     }
 
 }
+
+module.exports = Install;
 
