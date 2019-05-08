@@ -4,17 +4,15 @@
     "description": "jeneric cms",
     "main": "index.js",
     "scripts": {
-        "start": "node_modules/@jeneric/core/bin/install.js @jeneric/core && node .",
-        "start-dev": "nodemon",
-        "production": "NODE_ENV=production node ."
+        "start": "export NODE_ENV=production && node node_modules/@jeneric/core/bin/install.js @jeneric/core && node .",
+        "dev": "export NODE_ENV=development && node node_modules/@jeneric/core/bin/install.js @jeneric/core && node ."
     },
     "author": "Roman Eckert",
     "license": "MIT",
     "repository": "https://github.com/romaneckert/jeneric-cms",
     "dependencies": {
         "@jeneric/app": "2.0.1",
-        "@jeneric/core": "2.0.7",
-        "mongoose": "5.5.3"
+        "@jeneric/core": "2.0.8"
     },
     "nodemonConfig": {
         "ignore": [
@@ -25,11 +23,11 @@
         "ignoreRoot": [
             ".git"
         ],
-        "ext": "js,json,pug,css,js",
-        "exec": "npm run start"
+        "ext": "js,json,pug,css",
+        "exec": "npm run dev"
     },
     "devDependencies": {
-        "gulp": "4.0.1",
+        "gulp": "4.0.2",
         "gulp-autoprefixer": "6.1.0",
         "gulp-sass": "4.0.2",
         "gulp-strip-css-comments": "2.0.0"

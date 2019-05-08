@@ -3,6 +3,6 @@
 node_modules/
 /var
 /public/css
-/config/cert.pem
-/config/key.pem
+config/*
+!config/config.js
 !.gitkeep

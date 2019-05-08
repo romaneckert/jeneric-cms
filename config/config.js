@@ -1,6 +1,6 @@
 module.exports = {
     app: {
-        cluster: true,
+        cluster: false,
         baseUrl: 'https://localhost:3000'
     },
     auth: {
@@ -8,7 +8,7 @@ module.exports = {
     },
     i18n: {
         locales: ['en', 'de_DE', 'de'],
-        defaultLocale: ['en'],
+        defaultLocale: 'en',
     },
     mail: {
         url: 'smtp://localhost:1025/'
