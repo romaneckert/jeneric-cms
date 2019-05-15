@@ -21,11 +21,9 @@ class Install {
             });
         }
 
-
-
         // check if user with email already exists
         try {
-            if (null !== await app.model.user.findOne({ email: user.email })) {
+            if (null !== await app.model.user.findOne({email: user.email})) {
                 return res.redirect('/jeneric/install');
             }
         } catch (err) {
@@ -42,7 +40,7 @@ class Install {
 
             let passwordToken = crypto.randomBytes(32).toString('hex');
 
-            if (0 < await app.model.user.countDocuments({ passwordToken: passwordToken })) throw new Error();
+            if (0 < await app.model.user.countDocuments({passwordToken: passwordToken})) throw new Error();
 
             user.passwordToken = passwordToken;
             user.passwordTokenCreationDate = new Date();

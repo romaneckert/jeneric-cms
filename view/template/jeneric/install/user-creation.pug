@@ -1,0 +1,26 @@
+extends ../../../layout/jeneric/signed-out
+
+block append head
+    title=view.translate(locale, 'jeneric.install.user_creation.title')
+    meta(name="description" content=view.translate(locale, 'jeneric.install.user_creation.description'))
+
+block content
+
+    h1.h2=view.translate(locale, 'jeneric.install.user_creation.headline')
+
+    h2.h3=view.translate(locale, 'jeneric.install.user_creation.subline')
+
+    .jeneric-text
+        p=view.translate(locale, 'jeneric.install.user_creation.text')
+
+    +error(errors=form.errors)
+
+    +form(method='post' form=form)
+        .form-group
+            label(for='email')=view.translate(locale, 'jeneric.form.label.email')
+            +textfield.form-control(id='email' type='email' name='email' form=form required='required')
+
+        button.btn.btn-primary(type='submit')=view.translate(locale, 'jeneric.form.submit')
+
+
+
